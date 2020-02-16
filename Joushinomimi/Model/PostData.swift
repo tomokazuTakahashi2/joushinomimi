@@ -13,7 +13,6 @@ class PostData: NSObject {
     var id: String?
     var image: UIImage?
     var imageString: String?
-    var iconImage: UIImage?
     var name: String?
     var caption: String?
     var date: Date?
@@ -27,9 +26,6 @@ class PostData: NSObject {
 
         imageString = valueDictionary["image"] as? String
         image = UIImage(data: Data(base64Encoded: imageString!, options: .ignoreUnknownCharacters)!)
-        
-        imageString = valueDictionary["iconImage"] as? String
-        iconImage = UIImage(data: Data(base64Encoded: imageString!, options: .ignoreUnknownCharacters)!)
 
         self.name = valueDictionary["name"] as? String
 

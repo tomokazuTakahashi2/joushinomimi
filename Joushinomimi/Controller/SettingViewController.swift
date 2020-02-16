@@ -10,10 +10,12 @@ import UIKit
 import ESTabBarController
 import Firebase
 import SVProgressHUD
+import CLImageEditor
 
-class SettingViewController: UIViewController {
+class SettingViewController: UIViewController,UIImagePickerControllerDelegate, UINavigationControllerDelegate,CLImageEditorDelegate {
     @IBOutlet weak var displayNameTextField: UITextField!
-
+    @IBOutlet weak var imageView: UIImageView!
+    
     // 表示名変更ボタンをタップしたときに呼ばれるメソッド
     @IBAction func handleChangeButton(_ sender: Any) {
         if let displayName = displayNameTextField.text {
@@ -69,4 +71,69 @@ class SettingViewController: UIViewController {
             displayNameTextField.text = user.displayName
         }
     }
+    @IBAction func imageChoiceButton(_ sender: Any) {
+        // ライブラリ（カメラロール）を指定してピッカーを開く
+        if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
+            let pickerController = UIImagePickerController()
+            pickerController.delegate = self
+            pickerController.sourceType = .photoLibrary
+            self.present(pickerController, animated: true, completion: nil)
+        }
+    }
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        if info[.originalImage] != nil {
+            // 撮影/選択された画像を取得する
+            let image = info[.originalImage] as! UIImage
+
+            // あとでCLImageEditorライブラリで加工する
+            print("DEBUG_PRINT: image = \(image)")
+            // CLImageEditorにimageを渡して、加工画面を起動する。
+            let editor = CLImageEditor(image: image)!
+            editor.delegate = self
+            picker.pushViewController(editor, animated: true)
+        }
+    }
+
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        // 閉じる
+        picker.dismiss(animated: true, completion: nil)
+    }
+
+    // CLImageEditorで加工が終わったときに呼ばれるメソッド
+    func imageEditor(_ editor: CLImageEditor!, didFinishEditingWith image: UIImage!) {
+        let storage = Storage.storage()
+        let storageRef = storage.reference()
+
+        let changeRequest = Auth.auth().currentUser!.createProfileChangeRequest()
+        let data = imageView.image!.jpegData(compressionQuality: 0.9)!
+
+        let photoRef = storageRef.child("users/\(Auth.auth().currentUser!.uid)/profile-picture.jpg")
+
+        photoRef.putData(data, metadata: nil) { (metadata, error) in
+            if let error = error {
+                print(error)
+                return
+            }
+
+            photoRef.downloadURL { (url, error) in
+                if let error = error {
+                    print(error)
+                }
+
+                guard let downloadURL = url else {
+                    return
+                }
+
+                changeRequest.photoURL = downloadURL
+                changeRequest.commitChanges { (error) in
+                    if let error = error {
+                        print(error)
+                    }
+                }
+            }
+        }
+
+        self.imageView.image = image!
+    }
+    
 }

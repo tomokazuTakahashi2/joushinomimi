@@ -8,15 +8,14 @@
 import Firebase
 import UIKit
 import SVProgressHUD
-import CLImageEditor
 
-class LoginViewController: UIViewController,UIImagePickerControllerDelegate, UINavigationControllerDelegate,CLImageEditorDelegate {
+
+class LoginViewController: UIViewController {
 
     @IBOutlet weak var mailAddressTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var displayNameTextField: UITextField!
-    @IBOutlet weak var imageView: UIImageView!
-    
+
     // ログインボタンをタップしたときに呼ばれるメソッド
     @IBAction func handleLoginButton(_ sender: Any) {
         if let address = mailAddressTextField.text, let password = passwordTextField.text {
@@ -101,44 +100,6 @@ class LoginViewController: UIViewController,UIImagePickerControllerDelegate, UIN
         }
     }
 
-    @IBAction func imageChoiceButton(_ sender: Any) {
-        // ライブラリ（カメラロール）を指定してピッカーを開く
-        if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
-            let pickerController = UIImagePickerController()
-            pickerController.delegate = self
-            pickerController.sourceType = .photoLibrary
-            self.present(pickerController, animated: true, completion: nil)
-        }
-    }
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        if info[.originalImage] != nil {
-            // 撮影/選択された画像を取得する
-            let image = info[.originalImage] as! UIImage
-
-            // あとでCLImageEditorライブラリで加工する
-            print("DEBUG_PRINT: image = \(image)")
-            // CLImageEditorにimageを渡して、加工画面を起動する。
-            let editor = CLImageEditor(image: image)!
-            editor.delegate = self
-            picker.pushViewController(editor, animated: true)
-        }
-    }
-
-    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-        // 閉じる
-        picker.dismiss(animated: true, completion: nil)
-    }
-
-    // CLImageEditorで加工が終わったときに呼ばれるメソッド
-    func imageEditor(_ editor: CLImageEditor!, didFinishEditingWith image: UIImage!) {
-        let iconImage = imageView.image
-        let changeRequest = Auth.auth().currentUser?.createProfileChangeRequest()
-        changeRequest?.photoURL = iconImage
-        changeRequest?.commitChanges { (error) in
-          // ...
-        }
-        self.imageView.image = image!
-    }
     
     
     

@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4F71BC5954E4E97B5CF3C1E6 /* Pods_Joushinomimi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D2613D7A5C3AF586412B4ED /* Pods_Joushinomimi.framework */; };
+		1A0AD4EFEE0A2540576A6174 /* Pods_Joushinomimi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E25235CCB940523F41D3A5CD /* Pods_Joushinomimi.framework */; };
 		6448DFA623F70BB900E99BC1 /* Const.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6448DFA523F70BB900E99BC1 /* Const.swift */; };
 		6448DFAA23F70D7B00E99BC1 /* PostData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6448DFA923F70D7B00E99BC1 /* PostData.swift */; };
 		6448DFAD23F71B7300E99BC1 /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6448DFAB23F71B7300E99BC1 /* PostTableViewCell.swift */; };
@@ -29,8 +29,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		24D7A2FB867057777CECBF69 /* Pods-Joushinomimi.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Joushinomimi.debug.xcconfig"; path = "Target Support Files/Pods-Joushinomimi/Pods-Joushinomimi.debug.xcconfig"; sourceTree = "<group>"; };
-		61EAB406F41DD558AF9FA896 /* Pods-Joushinomimi.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Joushinomimi.release.xcconfig"; path = "Target Support Files/Pods-Joushinomimi/Pods-Joushinomimi.release.xcconfig"; sourceTree = "<group>"; };
 		6448DFA523F70BB900E99BC1 /* Const.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Const.swift; sourceTree = "<group>"; };
 		6448DFA923F70D7B00E99BC1 /* PostData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostData.swift; sourceTree = "<group>"; };
 		6448DFAB23F71B7300E99BC1 /* PostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
@@ -51,7 +49,9 @@
 		64E83A6523F6CFC000A8D53F /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
 		64E83A6723F6CFD100A8D53F /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		64E83A6923F6D27F00A8D53F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		9D2613D7A5C3AF586412B4ED /* Pods_Joushinomimi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Joushinomimi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		74E6F4B8DC92D0962E38C98A /* Pods-Joushinomimi.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Joushinomimi.debug.xcconfig"; path = "Target Support Files/Pods-Joushinomimi/Pods-Joushinomimi.debug.xcconfig"; sourceTree = "<group>"; };
+		CFF9628F510327907554DEE5 /* Pods-Joushinomimi.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Joushinomimi.release.xcconfig"; path = "Target Support Files/Pods-Joushinomimi/Pods-Joushinomimi.release.xcconfig"; sourceTree = "<group>"; };
+		E25235CCB940523F41D3A5CD /* Pods_Joushinomimi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Joushinomimi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,17 +59,17 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4F71BC5954E4E97B5CF3C1E6 /* Pods_Joushinomimi.framework in Frameworks */,
+				1A0AD4EFEE0A2540576A6174 /* Pods_Joushinomimi.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		151418473913E490794DD69D /* Frameworks */ = {
+		2078484B9CA5A517CAD60B31 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				9D2613D7A5C3AF586412B4ED /* Pods_Joushinomimi.framework */,
+				E25235CCB940523F41D3A5CD /* Pods_Joushinomimi.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -77,8 +77,8 @@
 		3094A1C5821DC8A4C2323023 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				24D7A2FB867057777CECBF69 /* Pods-Joushinomimi.debug.xcconfig */,
-				61EAB406F41DD558AF9FA896 /* Pods-Joushinomimi.release.xcconfig */,
+				74E6F4B8DC92D0962E38C98A /* Pods-Joushinomimi.debug.xcconfig */,
+				CFF9628F510327907554DEE5 /* Pods-Joushinomimi.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -125,7 +125,7 @@
 				64E83A4A23F6CD1A00A8D53F /* Joushinomimi */,
 				64E83A4923F6CD1A00A8D53F /* Products */,
 				3094A1C5821DC8A4C2323023 /* Pods */,
-				151418473913E490794DD69D /* Frameworks */,
+				2078484B9CA5A517CAD60B31 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -158,11 +158,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 64E83A5C23F6CD1B00A8D53F /* Build configuration list for PBXNativeTarget "Joushinomimi" */;
 			buildPhases = (
-				544044B48FFAA71942A29646 /* [CP] Check Pods Manifest.lock */,
+				32C68A8A60928B360ADF0F50 /* [CP] Check Pods Manifest.lock */,
 				64E83A4423F6CD1A00A8D53F /* Sources */,
 				64E83A4523F6CD1A00A8D53F /* Frameworks */,
 				64E83A4623F6CD1A00A8D53F /* Resources */,
-				EBDC0E506A4569B54519CEB8 /* [CP] Embed Pods Frameworks */,
+				E35DB30530BD30E9D0D03B54 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -222,7 +222,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		544044B48FFAA71942A29646 /* [CP] Check Pods Manifest.lock */ = {
+		32C68A8A60928B360ADF0F50 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -244,7 +244,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		EBDC0E506A4569B54519CEB8 /* [CP] Embed Pods Frameworks */ = {
+		E35DB30530BD30E9D0D03B54 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -422,7 +422,7 @@
 		};
 		64E83A5D23F6CD1B00A8D53F /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 24D7A2FB867057777CECBF69 /* Pods-Joushinomimi.debug.xcconfig */;
+			baseConfigurationReference = 74E6F4B8DC92D0962E38C98A /* Pods-Joushinomimi.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -441,7 +441,7 @@
 		};
 		64E83A5E23F6CD1B00A8D53F /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 61EAB406F41DD558AF9FA896 /* Pods-Joushinomimi.release.xcconfig */;
+			baseConfigurationReference = CFF9628F510327907554DEE5 /* Pods-Joushinomimi.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
