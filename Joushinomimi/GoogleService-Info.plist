@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>940377333535-aun0cterd5jhj5pr644270plk4u0bd97.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.940377333535-aun0cterd5jhj5pr644270plk4u0bd97</string>
+	<key>API_KEY</key>
+	<string>AIzaSyD_ZRHhK2Enx4Re0D1kRizwcG-D0I1Uqs0</string>
+	<key>GCM_SENDER_ID</key>
+	<string>940377333535</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>jp.tomokazu.takahashi.Joushinomimi</string>
+	<key>PROJECT_ID</key>
+	<string>joushinomimi</string>
+	<key>STORAGE_BUCKET</key>
+	<string>joushinomimi.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:940377333535:ios:ffcac6ee2956258f779a2a</string>
+	<key>DATABASE_URL</key>
+	<string>https://joushinomimi.firebaseio.com</string>
+</dict>
+</plist>

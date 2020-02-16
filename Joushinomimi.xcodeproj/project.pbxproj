@@ -3,19 +3,40 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4F71BC5954E4E97B5CF3C1E6 /* Pods_Joushinomimi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D2613D7A5C3AF586412B4ED /* Pods_Joushinomimi.framework */; };
+		6448DFA623F70BB900E99BC1 /* Const.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6448DFA523F70BB900E99BC1 /* Const.swift */; };
+		6448DFAA23F70D7B00E99BC1 /* PostData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6448DFA923F70D7B00E99BC1 /* PostData.swift */; };
+		6448DFAD23F71B7300E99BC1 /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6448DFAB23F71B7300E99BC1 /* PostTableViewCell.swift */; };
+		6448DFAE23F71B7300E99BC1 /* PostTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6448DFAC23F71B7300E99BC1 /* PostTableViewCell.xib */; };
+		6448DFB023F8237C00E99BC1 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6448DFAF23F8237C00E99BC1 /* SearchViewController.swift */; };
+		6448DFB223F827DD00E99BC1 /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6448DFB123F827DD00E99BC1 /* NotificationViewController.swift */; };
 		64E83A4C23F6CD1A00A8D53F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64E83A4B23F6CD1A00A8D53F /* AppDelegate.swift */; };
 		64E83A4E23F6CD1A00A8D53F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64E83A4D23F6CD1A00A8D53F /* SceneDelegate.swift */; };
 		64E83A5023F6CD1A00A8D53F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64E83A4F23F6CD1A00A8D53F /* ViewController.swift */; };
 		64E83A5323F6CD1A00A8D53F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 64E83A5123F6CD1A00A8D53F /* Main.storyboard */; };
 		64E83A5523F6CD1B00A8D53F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 64E83A5423F6CD1B00A8D53F /* Assets.xcassets */; };
 		64E83A5823F6CD1B00A8D53F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 64E83A5623F6CD1B00A8D53F /* LaunchScreen.storyboard */; };
+		64E83A6023F6CF8C00A8D53F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64E83A5F23F6CF8C00A8D53F /* LoginViewController.swift */; };
+		64E83A6223F6CF9900A8D53F /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64E83A6123F6CF9900A8D53F /* HomeViewController.swift */; };
+		64E83A6423F6CFB300A8D53F /* ImageSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64E83A6323F6CFB300A8D53F /* ImageSelectViewController.swift */; };
+		64E83A6623F6CFC000A8D53F /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64E83A6523F6CFC000A8D53F /* PostViewController.swift */; };
+		64E83A6823F6CFD100A8D53F /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64E83A6723F6CFD100A8D53F /* SettingViewController.swift */; };
+		64E83A6A23F6D27F00A8D53F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 64E83A6923F6D27F00A8D53F /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		24D7A2FB867057777CECBF69 /* Pods-Joushinomimi.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Joushinomimi.debug.xcconfig"; path = "Target Support Files/Pods-Joushinomimi/Pods-Joushinomimi.debug.xcconfig"; sourceTree = "<group>"; };
+		61EAB406F41DD558AF9FA896 /* Pods-Joushinomimi.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Joushinomimi.release.xcconfig"; path = "Target Support Files/Pods-Joushinomimi/Pods-Joushinomimi.release.xcconfig"; sourceTree = "<group>"; };
+		6448DFA523F70BB900E99BC1 /* Const.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Const.swift; sourceTree = "<group>"; };
+		6448DFA923F70D7B00E99BC1 /* PostData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostData.swift; sourceTree = "<group>"; };
+		6448DFAB23F71B7300E99BC1 /* PostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
+		6448DFAC23F71B7300E99BC1 /* PostTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostTableViewCell.xib; sourceTree = "<group>"; };
+		6448DFAF23F8237C00E99BC1 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		6448DFB123F827DD00E99BC1 /* NotificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewController.swift; sourceTree = "<group>"; };
 		64E83A4823F6CD1A00A8D53F /* Joushinomimi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Joushinomimi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		64E83A4B23F6CD1A00A8D53F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		64E83A4D23F6CD1A00A8D53F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -24,6 +45,13 @@
 		64E83A5423F6CD1B00A8D53F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		64E83A5723F6CD1B00A8D53F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		64E83A5923F6CD1B00A8D53F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		64E83A5F23F6CF8C00A8D53F /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		64E83A6123F6CF9900A8D53F /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		64E83A6323F6CFB300A8D53F /* ImageSelectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSelectViewController.swift; sourceTree = "<group>"; };
+		64E83A6523F6CFC000A8D53F /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
+		64E83A6723F6CFD100A8D53F /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		64E83A6923F6D27F00A8D53F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		9D2613D7A5C3AF586412B4ED /* Pods_Joushinomimi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Joushinomimi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +59,73 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4F71BC5954E4E97B5CF3C1E6 /* Pods_Joushinomimi.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		151418473913E490794DD69D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9D2613D7A5C3AF586412B4ED /* Pods_Joushinomimi.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		3094A1C5821DC8A4C2323023 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				24D7A2FB867057777CECBF69 /* Pods-Joushinomimi.debug.xcconfig */,
+				61EAB406F41DD558AF9FA896 /* Pods-Joushinomimi.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		6448DFA223F6FEC800E99BC1 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				64E83A5423F6CD1B00A8D53F /* Assets.xcassets */,
+				6448DFA523F70BB900E99BC1 /* Const.swift */,
+				6448DFA923F70D7B00E99BC1 /* PostData.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		6448DFA323F6FEDF00E99BC1 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				64E83A4F23F6CD1A00A8D53F /* ViewController.swift */,
+				6448DFAF23F8237C00E99BC1 /* SearchViewController.swift */,
+				6448DFB123F827DD00E99BC1 /* NotificationViewController.swift */,
+				64E83A5F23F6CF8C00A8D53F /* LoginViewController.swift */,
+				64E83A6323F6CFB300A8D53F /* ImageSelectViewController.swift */,
+				64E83A6123F6CF9900A8D53F /* HomeViewController.swift */,
+				64E83A6523F6CFC000A8D53F /* PostViewController.swift */,
+				64E83A6723F6CFD100A8D53F /* SettingViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		6448DFA423F6FEE700E99BC1 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				64E83A5123F6CD1A00A8D53F /* Main.storyboard */,
+				64E83A5623F6CD1B00A8D53F /* LaunchScreen.storyboard */,
+				6448DFAB23F71B7300E99BC1 /* PostTableViewCell.swift */,
+				6448DFAC23F71B7300E99BC1 /* PostTableViewCell.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		64E83A3F23F6CD1A00A8D53F = {
 			isa = PBXGroup;
 			children = (
 				64E83A4A23F6CD1A00A8D53F /* Joushinomimi */,
 				64E83A4923F6CD1A00A8D53F /* Products */,
+				3094A1C5821DC8A4C2323023 /* Pods */,
+				151418473913E490794DD69D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -58,11 +142,11 @@
 			children = (
 				64E83A4B23F6CD1A00A8D53F /* AppDelegate.swift */,
 				64E83A4D23F6CD1A00A8D53F /* SceneDelegate.swift */,
-				64E83A4F23F6CD1A00A8D53F /* ViewController.swift */,
-				64E83A5123F6CD1A00A8D53F /* Main.storyboard */,
-				64E83A5423F6CD1B00A8D53F /* Assets.xcassets */,
-				64E83A5623F6CD1B00A8D53F /* LaunchScreen.storyboard */,
+				6448DFA223F6FEC800E99BC1 /* Model */,
+				6448DFA423F6FEE700E99BC1 /* View */,
+				6448DFA323F6FEDF00E99BC1 /* Controller */,
 				64E83A5923F6CD1B00A8D53F /* Info.plist */,
+				64E83A6923F6D27F00A8D53F /* GoogleService-Info.plist */,
 			);
 			path = Joushinomimi;
 			sourceTree = "<group>";
@@ -74,9 +158,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 64E83A5C23F6CD1B00A8D53F /* Build configuration list for PBXNativeTarget "Joushinomimi" */;
 			buildPhases = (
+				544044B48FFAA71942A29646 /* [CP] Check Pods Manifest.lock */,
 				64E83A4423F6CD1A00A8D53F /* Sources */,
 				64E83A4523F6CD1A00A8D53F /* Frameworks */,
 				64E83A4623F6CD1A00A8D53F /* Resources */,
+				EBDC0E506A4569B54519CEB8 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -125,6 +211,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				64E83A6A23F6D27F00A8D53F /* GoogleService-Info.plist in Resources */,
+				6448DFAE23F71B7300E99BC1 /* PostTableViewCell.xib in Resources */,
 				64E83A5823F6CD1B00A8D53F /* LaunchScreen.storyboard in Resources */,
 				64E83A5523F6CD1B00A8D53F /* Assets.xcassets in Resources */,
 				64E83A5323F6CD1A00A8D53F /* Main.storyboard in Resources */,
@@ -133,14 +221,66 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		544044B48FFAA71942A29646 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Joushinomimi-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EBDC0E506A4569B54519CEB8 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Joushinomimi/Pods-Joushinomimi-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Joushinomimi/Pods-Joushinomimi-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Joushinomimi/Pods-Joushinomimi-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		64E83A4423F6CD1A00A8D53F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6448DFAD23F71B7300E99BC1 /* PostTableViewCell.swift in Sources */,
+				64E83A6423F6CFB300A8D53F /* ImageSelectViewController.swift in Sources */,
+				64E83A6223F6CF9900A8D53F /* HomeViewController.swift in Sources */,
+				64E83A6623F6CFC000A8D53F /* PostViewController.swift in Sources */,
+				64E83A6823F6CFD100A8D53F /* SettingViewController.swift in Sources */,
+				64E83A6023F6CF8C00A8D53F /* LoginViewController.swift in Sources */,
+				6448DFB023F8237C00E99BC1 /* SearchViewController.swift in Sources */,
+				6448DFAA23F70D7B00E99BC1 /* PostData.swift in Sources */,
 				64E83A5023F6CD1A00A8D53F /* ViewController.swift in Sources */,
+				6448DFB223F827DD00E99BC1 /* NotificationViewController.swift in Sources */,
 				64E83A4C23F6CD1A00A8D53F /* AppDelegate.swift in Sources */,
 				64E83A4E23F6CD1A00A8D53F /* SceneDelegate.swift in Sources */,
+				6448DFA623F70BB900E99BC1 /* Const.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -282,10 +422,11 @@
 		};
 		64E83A5D23F6CD1B00A8D53F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 24D7A2FB867057777CECBF69 /* Pods-Joushinomimi.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 95YGZ59RLK;
+				DEVELOPMENT_TEAM = J8LP9MW8T8;
 				INFOPLIST_FILE = Joushinomimi/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -294,16 +435,17 @@
 				PRODUCT_BUNDLE_IDENTIFIER = jp.tomokazu.takahashi.Joushinomimi;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
 		64E83A5E23F6CD1B00A8D53F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 61EAB406F41DD558AF9FA896 /* Pods-Joushinomimi.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 95YGZ59RLK;
+				DEVELOPMENT_TEAM = J8LP9MW8T8;
 				INFOPLIST_FILE = Joushinomimi/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -312,7 +454,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = jp.tomokazu.takahashi.Joushinomimi;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
