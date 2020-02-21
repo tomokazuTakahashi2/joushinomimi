@@ -18,6 +18,7 @@ class PostData: NSObject {
     var date: Date?
     var likes: [String] = []
     var isLiked: Bool = false
+    var profileImage: UIImage?
 
     init(snapshot: DataSnapshot, myId: String) {
         self.id = snapshot.key
@@ -26,7 +27,9 @@ class PostData: NSObject {
 
         imageString = valueDictionary["image"] as? String
         image = UIImage(data: Data(base64Encoded: imageString!, options: .ignoreUnknownCharacters)!)
-
+        
+        self.name = valueDictionary["profileImage"] as? String
+        
         self.name = valueDictionary["name"] as? String
 
         self.caption = valueDictionary["caption"] as? String

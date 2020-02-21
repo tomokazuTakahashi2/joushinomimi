@@ -6,34 +6,38 @@
 //  Copyright © 2020 takahashi. All rights reserved.
 //
 
-import UIKit
-
-class SearchViewController: UIViewController ,UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout{
-
-    @IBOutlet weak var collectionView: UICollectionView!
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        let layout = UICollectionViewFlowLayout()
-        layout.sectionInset = UIEdgeInsets(top: 15, left: 15, bottom: 15, right: 15)
-        collectionView.collectionViewLayout = layout
-    }
-    
-
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 18
-    }
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CollectionCell", for: indexPath)
-        cell.backgroundColor = .red
-        return cell
-    }
-
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let horizontalSpace : CGFloat = 20
-        let cellSize : CGFloat = self.view.bounds.width / 3 - horizontalSpace
-        return CGSize(width: cellSize, height: cellSize)
-    }
-
-}
+//import UIKit
+//
+//class SearchViewController: UIViewController{
+//
+//    var searchController: UISearchController!
+//    
+//    override func viewDidLoad() {
+//        super.viewDidLoad()
+//        
+//        //検索結果を表示するSearchResultViewControllerのインスタンスを生成
+//        let searchResultViewController = SearchResultViewController()
+//        
+//        //UISearchControllerのインスタンス生成＆検索結果画面をSearchResultViewControllerに指定
+//        searchController = UISearchController(searchResultsController: searchResultViewController)
+//        
+//        //このクラスを表示の起点とする
+//        self.definesPresentationContext = true
+//        
+//        //ナビゲーションバーに検索窓を表示する
+//        self.navigationItem.searchController = searchController
+//        
+//        //ナビゲーションバーにタイトルを入れる
+//        self.title = "検索"
+//        self.navigationController?.navigationBar.prefersLargeTitles = true
+//        self.navigationItem.largeTitleDisplayMode = .automatic
+//        
+//        //検索処理をどのクラスで処理するかを指定
+//        //SearchResultViewControllerを指定
+//        searchController.searchResultsUpdater = searchResultViewController
+//        
+//        
+//        
+//    }
+//
+//}

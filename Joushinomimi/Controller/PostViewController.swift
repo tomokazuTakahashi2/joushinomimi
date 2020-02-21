@@ -17,23 +17,20 @@ class PostViewController: UIViewController {
         // postDataに必要な情報を取得しておく
         let time = Date.timeIntervalSinceReferenceDate
         let name = Auth.auth().currentUser?.displayName
-
+        
+        
+        let profileImageString = Storage.storage().reference().child("users/\(Auth.auth().currentUser!.uid)/profile-picture.jpg")
+        
         // 辞書を作成してFirebaseに保存する
         let postRef = Database.database().reference().child(Const.PostPath)
-        let postDic = ["caption": textField.text!, "image": imageString, "time": String(time), "name": name!]
+        let postDic = ["caption": textField.text!, "image": imageString, "time": String(time), "name": name!,"profileImage": profileImageString] as [String : Any]
         postRef.childByAutoId().setValue(postDic)
 
         // HUDで投稿完了を表示する
         SVProgressHUD.showSuccess(withStatus: "投稿しました")
 
         // 全てのモーダルを閉じる
-        let keyWindow = UIApplication.shared.connectedScenes
-               .filter({$0.activationState == .foregroundActive})
-               .map({$0 as? UIWindowScene})
-               .compactMap({$0})
-               .first?.windows
-               .filter({$0.isKeyWindow}).first
-        keyWindow?.endEditing(true)
+        UIApplication.shared.keyWindow?.rootViewController?.dismiss(animated: true, completion: nil)
     }
 
     // キャンセルボタンをタップしたときに呼ばれるメソッド

@@ -63,9 +63,11 @@ class ImageSelectViewController: UIViewController, UIImagePickerControllerDelega
 
     // CLImageEditorで加工が終わったときに呼ばれるメソッド
     func imageEditor(_ editor: CLImageEditor!, didFinishEditingWith image: UIImage!) {
-        // 投稿の画面を開く
+        // 投稿の画面postViewControllerを開く
         let postViewController = self.storyboard?.instantiateViewController(withIdentifier: "Post") as! PostViewController
+        //画像をpostViewControllerのimageに飛ばす
         postViewController.image = image!
+        //postViewControllerへ画面遷移
         editor.present(postViewController, animated: true, completion: nil)
     }
 
