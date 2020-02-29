@@ -104,88 +104,40 @@ class SettingViewController: UIViewController,UIImagePickerControllerDelegate, U
 
     // CLImageEditorで加工が終わったときに呼ばれるメソッド
     func imageEditor(_ editor: CLImageEditor!, didFinishEditingWith image: UIImage!) {
-        //FirebaseのDatabaseのURL
-        let ref = Database.database().reference(fromURL: "https://joushinomimi.firebaseio.com/")
-        //FirebaseのStorageのURL
-        let storage = Storage.storage().reference(forURL: "gs://joushinomimi.appspot.com")
-        
-//        //ユーザーのプロフィールを更新する
-//        let changeRequest = Auth.auth().currentUser!.createProfileChangeRequest()
-//        let data = imageView.image!.jpegData(compressionQuality: 0.9)!
-        
-        //let imageString = data.base64EncodedString(options: .lineLength64Characters)
-        var imageData:Data = Data()
-        //自分だけのIDを発行
-        let key = ref.childByAutoId()
-        
-        //"ProfileImages"の中に"〇〇.jpeg"という形で格納される
-        let imageRef = storage.child("ProfileImages").child("\(key).jpeg")
-        
-        //imageView.imageがnilでなかったら、
-        if self.imageView.image != nil{
-            //imageView.imageを1/100に圧縮してimageDataというData型に入れる
-            imageData = (self.imageView.image?.jpegData(compressionQuality: 0.01))!
-        }
-        
-        //アップロード
-        //imageDataをimageRefに置きに行く→metaDataかerrorに入ってくる
-        let uploadTask = imageRef.putData(imageData,metadata: nil){(metaData,error)in
-            //errorがnilじゃなかったら（エラーだったら）、
-            if error != nil{
-                print(error as Any)
-                //ここで止める
+        let storage = Storage.storage()
+        let storageRef = storage.reference()
+
+        let changeRequest = Auth.auth().currentUser!.createProfileChangeRequest()
+        let data = imageView.image!.jpegData(compressionQuality: 0.9)!
+
+        let photoRef = storageRef.child("users/\(Auth.auth().currentUser!.uid)/profile-picture.jpg")
+
+        photoRef.putData(data, metadata: nil) { (metadata, error) in
+            if let error = error {
+                print(error)
                 return
             }
-            //そうでなかったら（エラーじゃなかったら）、
-            imageRef.downloadURL { (url, error) in
-                //urlがnilでなかったら（urlかerrorに何か入ってきたら）、
-                if url != nil{
-                    //urlをimageURLに入れ、
-                    self.imageURL = url
-                    //imageURLをURL型から String型へ変換（.absoluteString）し、"profileImageString"というキー値で保存する
-                    UserDefaults.standard.set(self.imageURL?.absoluteString, forKey: "profileImageString")
+
+            photoRef.downloadURL { (url, error) in
+                if let error = error {
+                    print(error)
                 }
-          
+
+                guard let downloadURL = url else {
+                    return
+                }
+
+                changeRequest.photoURL = downloadURL
+                changeRequest.commitChanges { (error) in
+                    if let error = error {
+                        print(error)
+                    }
+                }
+
+                editor.dismiss(animated: true, completion: nil) // <= 画面を閉じるコマンド
             }
         }
-        uploadTask.resume()
 
-//        photoRef.putData(data, metadata: nil) { (metadata, error) in
-//            //もしエラーだったらエラーをプリント
-//            if let error = error {
-//                print(error)
-//                return
-//            }
-//
-//            photoRef.downloadURL { (url, error) in
-//                //もしerrorだったら、プリントする
-//                if let error = error {
-//                    print(error)
-//                }
-//                //もしurlがnilだったらこれ以上進まない
-//                guard let downloadURL = url else {
-//                    return
-//                }
-//                //urlがnilじゃなかったら、以下を実行
-//                changeRequest.photoURL = downloadURL
-//                changeRequest.commitChanges { (error) in
-//                    if let error = error {
-//                        print(error)
-//                    }
-//
-//                }
-//
-//
-//            }
-//        }
-        //imageView.imageに画像を反映する
         self.imageView.image = image!
-        //モーダルを閉じる
-        editor.dismiss(animated: true, completion: nil)
     }
-    
-//    @IBAction func FinishedEditing(_ sender: Any) {
-//
-//    }
-
 }

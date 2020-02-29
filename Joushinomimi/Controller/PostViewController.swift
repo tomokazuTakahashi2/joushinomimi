@@ -17,13 +17,10 @@ class PostViewController: UIViewController {
         // postDataに必要な情報を取得しておく
         let time = Date.timeIntervalSinceReferenceDate
         let name = Auth.auth().currentUser?.displayName
-        
-        
-        let profileImageString = Storage.storage().reference().child("users/\(Auth.auth().currentUser!.uid)/profile-picture.jpg")
-        
+
         // 辞書を作成してFirebaseに保存する
         let postRef = Database.database().reference().child(Const.PostPath)
-        let postDic = ["caption": textField.text!, "image": imageString, "time": String(time), "name": name!,"profileImage": profileImageString] as [String : Any]
+        let postDic = ["caption": textField.text!, "image": imageString, "time": String(time), "name": name!]
         postRef.childByAutoId().setValue(postDic)
 
         // HUDで投稿完了を表示する
