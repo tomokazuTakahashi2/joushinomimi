@@ -13,7 +13,9 @@ target 'Joushinomimi' do
   pod 'Firebase/Database'
   pod 'Firebase/Storage'
   pod 'SVProgressHUD','2.2.5'
-  pod 'CLImageEditor/AllTools'
+  pod 'CLImageEditor/AllTools','0.2.3'
+  pod 'Kingfisher'
+  pod 'FirebaseUI/Storage'
 
 
 end

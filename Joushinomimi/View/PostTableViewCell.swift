@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class PostTableViewCell: UITableViewCell {
 
@@ -16,6 +17,7 @@ class PostTableViewCell: UITableViewCell {
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var captionLabel: UILabel!
     @IBOutlet weak var profileImage: UIImageView!
+    @IBOutlet weak var commentLabel: UITextView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -31,7 +33,11 @@ class PostTableViewCell: UITableViewCell {
     func setPostData(_ postData: PostData) {
         self.postImageView.image = postData.image
        
-        self.profileImage.image = postData.image
+        //self.profileImage.image = postData.uid
+        
+        //Kingfisher
+//        imageView.kf.setImage(with: postData.url)
+        
 
         self.captionLabel.text = "\(postData.name!) : \(postData.caption!)"
         let likeNumber = postData.likes.count
@@ -49,5 +55,6 @@ class PostTableViewCell: UITableViewCell {
             let buttonImage = UIImage(named: "like_none")
             self.likeButton.setImage(buttonImage, for: .normal)
         }
+        self.commentLabel.text = "\(postData.postComment!)"
     }
 }
