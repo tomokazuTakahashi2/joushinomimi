@@ -9,6 +9,7 @@
 import UIKit
 import ESTabBarController
 import Firebase
+import FirebaseUI
 import SVProgressHUD
 import CLImageEditor
 
@@ -25,16 +26,16 @@ class SettingViewController: UIViewController,UIImagePickerControllerDelegate, U
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-//        //FirebaseUI
-//        let storageRef = Storage.storage().reference()
-//        // Reference to an image file in Firebase Storage
-//        let reference = storageRef.child("users/\(Auth.auth().currentUser!.uid)/profile-picture.jpg")
-//        // UIImageView in your ViewController
-//        let imageView: UIImageView = self.imageView
-//        // Placeholder image
-//        let placeholderImage = UIImage(named: "placeholder.jpg")
-//        // Load the image using SDWebImage
-//        imageView.sd_setImage(with: reference, placeholderImage: placeholderImage)
+        //FirebaseUI
+        let storageRef = Storage.storage().reference()
+        // Reference to an image file in Firebase Storage
+        let reference = storageRef.child("users/\(Auth.auth().currentUser!.uid)/profile-picture.jpg")
+        // UIImageView in your ViewController
+        let imageView: UIImageView = self.imageView
+        // Placeholder image
+        let placeholderImage = UIImage(named: "placeholder.jpg")
+        // Load the image using SDWebImage
+        imageView.sd_setImage(with: reference, placeholderImage: placeholderImage)
 
         // 表示名とを取得してTextFieldに設定する
         let user = Auth.auth().currentUser
@@ -137,6 +138,11 @@ class SettingViewController: UIViewController,UIImagePickerControllerDelegate, U
                 guard let downloadURL = url else {
                     return
                 }
+                
+//                let timeLineDB = Database.database().reference().child(Const.PostPath)
+//                let timeLineInfo = ["profileImage":url?.absoluteString as Any]
+//                timeLineDB.updateChildValues(timeLineInfo)
+//                
                 //nilじゃなかったら、画像を変更する
                 changeRequest.photoURL = downloadURL
                 changeRequest.commitChanges { (error) in
@@ -150,6 +156,7 @@ class SettingViewController: UIViewController,UIImagePickerControllerDelegate, U
         }
         //イメージビューに反映する
         self.imageView.image = image!
+    
     }
     // ログアウトボタンをタップしたときに呼ばれるメソッド
     @IBAction func handleLogoutButton(_ sender: Any) {

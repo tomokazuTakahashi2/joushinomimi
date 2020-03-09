@@ -32,12 +32,8 @@ class PostTableViewCell: UITableViewCell {
 
     func setPostData(_ postData: PostData) {
         self.postImageView.image = postData.image
-       
-        //self.profileImage.image = postData.uid
         
-        //Kingfisher
-//        imageView.kf.setImage(with: postData.url)
-        
+        self.profileImage.image = postData.profileImage
 
         self.captionLabel.text = "\(postData.name!) : \(postData.caption!)"
         let likeNumber = postData.likes.count
