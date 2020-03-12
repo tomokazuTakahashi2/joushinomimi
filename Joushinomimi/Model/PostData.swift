@@ -11,8 +11,8 @@ import Firebase
 
 class PostData: NSObject {
     var id: String?
-    var image: UIImage?
-    var imageString: String?
+//    var image: UIImage?
+//    var imageString: String?
     var name: String?
     var profileImageString: String?
     var profileImage: UIImage?
@@ -29,9 +29,9 @@ class PostData: NSObject {
         
         self.name = valueDictionary["name"] as? String
 
-        imageString = valueDictionary["image"] as? String
-        image = UIImage(data: Data(base64Encoded: imageString!, options: .ignoreUnknownCharacters)!)
-        
+//        imageString = valueDictionary["image"] as? String
+//        image = UIImage(data: Data(base64Encoded: imageString!, options: .ignoreUnknownCharacters)!)
+//
         profileImageString = valueDictionary["profileImage"] as? String
         profileImage = UIImage(data: Data(base64Encoded: profileImageString!, options: .ignoreUnknownCharacters)!)
 

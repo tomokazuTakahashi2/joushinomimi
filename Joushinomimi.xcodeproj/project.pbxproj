@@ -24,7 +24,6 @@
 		64E83A5823F6CD1B00A8D53F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 64E83A5623F6CD1B00A8D53F /* LaunchScreen.storyboard */; };
 		64E83A6023F6CF8C00A8D53F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64E83A5F23F6CF8C00A8D53F /* LoginViewController.swift */; };
 		64E83A6223F6CF9900A8D53F /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64E83A6123F6CF9900A8D53F /* HomeViewController.swift */; };
-		64E83A6423F6CFB300A8D53F /* ImageSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64E83A6323F6CFB300A8D53F /* ImageSelectViewController.swift */; };
 		64E83A6623F6CFC000A8D53F /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64E83A6523F6CFC000A8D53F /* PostViewController.swift */; };
 		64E83A6823F6CFD100A8D53F /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64E83A6723F6CFD100A8D53F /* SettingViewController.swift */; };
 		64E83A6A23F6D27F00A8D53F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 64E83A6923F6D27F00A8D53F /* GoogleService-Info.plist */; };
@@ -52,7 +51,6 @@
 		64E83A5923F6CD1B00A8D53F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		64E83A5F23F6CF8C00A8D53F /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		64E83A6123F6CF9900A8D53F /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
-		64E83A6323F6CFB300A8D53F /* ImageSelectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSelectViewController.swift; sourceTree = "<group>"; };
 		64E83A6523F6CFC000A8D53F /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
 		64E83A6723F6CFD100A8D53F /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		64E83A6923F6D27F00A8D53F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -102,7 +100,6 @@
 				6448DFAF23F8237C00E99BC1 /* SearchViewController.swift */,
 				6448DFB523FAACE600E99BC1 /* SearchResultViewController.swift */,
 				6448DFB123F827DD00E99BC1 /* NotificationViewController.swift */,
-				64E83A6323F6CFB300A8D53F /* ImageSelectViewController.swift */,
 				64E83A6123F6CF9900A8D53F /* HomeViewController.swift */,
 				64E83A6523F6CFC000A8D53F /* PostViewController.swift */,
 				64E83A6723F6CFD100A8D53F /* SettingViewController.swift */,
@@ -278,7 +275,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				6448DFAD23F71B7300E99BC1 /* PostTableViewCell.swift in Sources */,
-				64E83A6423F6CFB300A8D53F /* ImageSelectViewController.swift in Sources */,
 				64B1151B2417CF6800D1CAE7 /* LoginNextViewController.swift in Sources */,
 				64E83A6223F6CF9900A8D53F /* HomeViewController.swift in Sources */,
 				64E83A6623F6CFC000A8D53F /* PostViewController.swift in Sources */,

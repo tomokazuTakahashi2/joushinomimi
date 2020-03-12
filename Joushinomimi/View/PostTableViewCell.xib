@@ -9,20 +9,13 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="540" id="KGk-i7-Jjw" customClass="PostTableViewCell" customModule="Joushinomimi" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="378" height="540"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="423" id="KGk-i7-Jjw" customClass="PostTableViewCell" customModule="Joushinomimi" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="378" height="423"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="378" height="540"/>
+                <rect key="frame" x="0.0" y="0.0" width="378" height="423"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="mnj-D5-4C0">
-                        <rect key="frame" x="168" y="40.5" width="200" height="200"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="200" id="Zxc-lA-vXl"/>
-                            <constraint firstAttribute="height" constant="200" id="mpa-Oo-xrh"/>
-                        </constraints>
-                    </imageView>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7zv-Ye-JY9">
                         <rect key="frame" x="10" y="90" width="94" height="40"/>
                         <state key="normal" title="Button" image="like_none"/>
@@ -49,7 +42,7 @@
                         </constraints>
                     </imageView>
                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="dFu-J2-TKI">
-                        <rect key="frame" x="10" y="281.5" width="358" height="248.5"/>
+                        <rect key="frame" x="10" y="140" width="358" height="273"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                         <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -57,7 +50,7 @@
                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                     </textView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="日付" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5eT-rJ-Ah0">
-                        <rect key="frame" x="168" y="250.5" width="200" height="21"/>
+                        <rect key="frame" x="168" y="40.5" width="200" height="21"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="200" id="61t-c3-f24"/>
                         </constraints>
@@ -72,17 +65,15 @@
                     <constraint firstItem="3p4-Uv-GAA" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="Aid-ry-KHn"/>
                     <constraint firstItem="MUn-Qx-Ivc" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="44" id="B9U-fY-WkA"/>
                     <constraint firstItem="dFu-J2-TKI" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="DAo-p8-Lyu"/>
-                    <constraint firstAttribute="trailing" secondItem="mnj-D5-4C0" secondAttribute="trailing" constant="10" id="EwJ-GO-iSP"/>
                     <constraint firstItem="RVu-zW-Dms" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="JYP-DI-9gX"/>
                     <constraint firstItem="RVu-zW-Dms" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="Mrt-vt-6Bz"/>
+                    <constraint firstItem="dFu-J2-TKI" firstAttribute="top" secondItem="7zv-Ye-JY9" secondAttribute="bottom" constant="10" id="PMS-Kt-oVI"/>
                     <constraint firstItem="dFu-J2-TKI" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="Rcs-av-YBQ"/>
                     <constraint firstAttribute="trailing" secondItem="5eT-rJ-Ah0" secondAttribute="trailing" constant="10" id="S3E-xn-UXW"/>
-                    <constraint firstItem="mnj-D5-4C0" firstAttribute="top" secondItem="3p4-Uv-GAA" secondAttribute="bottom" constant="10" id="SCM-Ni-MI2"/>
                     <constraint firstAttribute="bottom" secondItem="dFu-J2-TKI" secondAttribute="bottom" constant="10" id="UUw-df-Pe8"/>
                     <constraint firstAttribute="trailing" secondItem="dFu-J2-TKI" secondAttribute="trailing" constant="10" id="Vvp-RN-Bz5"/>
-                    <constraint firstItem="5eT-rJ-Ah0" firstAttribute="top" secondItem="mnj-D5-4C0" secondAttribute="bottom" constant="10" id="eVc-9s-ywe"/>
+                    <constraint firstItem="5eT-rJ-Ah0" firstAttribute="top" secondItem="3p4-Uv-GAA" secondAttribute="bottom" constant="10" id="XdN-Nm-aWI"/>
                     <constraint firstItem="7zv-Ye-JY9" firstAttribute="top" secondItem="RVu-zW-Dms" secondAttribute="bottom" constant="10" id="nCS-tx-8ik"/>
-                    <constraint firstItem="dFu-J2-TKI" firstAttribute="top" secondItem="5eT-rJ-Ah0" secondAttribute="bottom" constant="10" id="xg8-rw-JPJ"/>
                     <constraint firstItem="3p4-Uv-GAA" firstAttribute="leading" secondItem="RVu-zW-Dms" secondAttribute="trailing" constant="10" id="zEC-fc-Vhy"/>
                 </constraints>
             </tableViewCellContentView>
@@ -93,10 +84,9 @@
                 <outlet property="dateLabel" destination="5eT-rJ-Ah0" id="ogm-eW-V8Y"/>
                 <outlet property="likeButton" destination="7zv-Ye-JY9" id="YmQ-EE-n92"/>
                 <outlet property="likeLabel" destination="MUn-Qx-Ivc" id="6o0-Bq-cQS"/>
-                <outlet property="postImageView" destination="mnj-D5-4C0" id="gsN-1n-kQc"/>
                 <outlet property="profileImage" destination="RVu-zW-Dms" id="rrQ-R5-EgV"/>
             </connections>
-            <point key="canvasLocation" x="78.260869565217391" y="95.089285714285708"/>
+            <point key="canvasLocation" x="78.260869565217391" y="55.915178571428569"/>
         </tableViewCell>
     </objects>
     <resources>

@@ -10,13 +10,13 @@ import UIKit
 
 class PostTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var postImageView: UIImageView!
+//    @IBOutlet weak var postImageView: UIImageView!
     @IBOutlet weak var likeButton: UIButton!
     @IBOutlet weak var likeLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var captionLabel: UILabel!
     @IBOutlet weak var profileImage: UIImageView!
-    @IBOutlet weak var commentLabel: UITextView!
+    @IBOutlet weak var commentLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -30,7 +30,7 @@ class PostTableViewCell: UITableViewCell {
     }
 
     func setPostData(_ postData: PostData) {
-        self.postImageView.image = postData.image
+//        self.postImageView.image = postData.image
         
         self.profileImage.image = postData.profileImage
 

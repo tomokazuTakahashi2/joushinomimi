@@ -31,12 +31,13 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         let nib = UINib(nibName: "PostTableViewCell", bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: "Cell")
 
-        // テーブル行の高さの概算値を設定しておく
-        // 高さ概算値 = 「縦横比1:1のUIImageViewの高さ(=画面幅)」+「いいねボタン、キャプションラベル、その他余白の高さの合計概算(=100pt)」
-        tableView.estimatedRowHeight = 400
-        
         // テーブル行の高さをAutoLayoutで自動調整する
         tableView.rowHeight = UITableView.automaticDimension
+        // テーブル行の高さの概算値を設定しておく
+        // 高さ概算値 = 「縦横比1:1のUIImageViewの高さ(=画面幅)」+「いいねボタン、キャプションラベル、その他余白の高さの合計概算(=100pt)」
+        tableView.estimatedRowHeight = UIScreen.main.bounds.width + 100
+        
+
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -123,7 +124,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         return cell
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 400
+        return 300
     }
 
     // セル内のボタンがタップされた時に呼ばれるメソッド
@@ -163,4 +164,18 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         }
     }
 
+}
+class AllSelectableTextView: UITextView {
+
+    override func canPerformAction(_ action: Selector, withSender sender: Any?) -> Bool {
+
+        // すべて選択，コピー，共有のみ利用可能
+        if action == #selector(selectAll(_:)) ||
+            action == #selector(copy(_:)) ||
+            action == Selector(("_share:")) {
+            return true
+        } else {
+            return false
+        }
+    }
 }
