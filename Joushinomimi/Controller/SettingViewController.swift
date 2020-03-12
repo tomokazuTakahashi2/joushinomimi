@@ -9,33 +9,57 @@
 import UIKit
 import ESTabBarController
 import Firebase
-import FirebaseUI
+//import FirebaseUI
 import SVProgressHUD
 import CLImageEditor
+import Kingfisher
 
 
 class SettingViewController: UIViewController,UIImagePickerControllerDelegate, UINavigationControllerDelegate,CLImageEditorDelegate {
     
     var imageURL:URL?
+    var imageData:Data = Data()
     
     @IBOutlet weak var displayNameLabel: UILabel!
     @IBOutlet weak var displayNameTextField: UITextField!
     @IBOutlet weak var imageView: UIImageView!
     
-    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        //FirebaseUI
-        let storageRef = Storage.storage().reference()
-        // Reference to an image file in Firebase Storage
-        let reference = storageRef.child("users/\(Auth.auth().currentUser!.uid)/profile-picture.jpg")
-        // UIImageView in your ViewController
-        let imageView: UIImageView = self.imageView
-        // Placeholder image
-        let placeholderImage = UIImage(named: "placeholder.jpg")
-        // Load the image using SDWebImage
-        imageView.sd_setImage(with: reference, placeholderImage: placeholderImage)
+//        //FirebaseUI
+//            let storageRef = Storage.storage().reference(forURL: "gs://joushinomimi.appspot.com")
+//            // Reference to an image file in Firebase Storage
+//            let reference = storageRef.child("users/\(Auth.auth().currentUser!.uid)/profile-picture.jpg")
+//            // UIImageView in your ViewController
+//            let imageView: UIImageView = self.imageView
+//            // Placeholder image
+//            let placeholderImage = UIImage(named: "placeholder.jpg")
+//            // Load the image using SDWebImage
+//            imageView.sd_setImage(with: reference, placeholderImage: placeholderImage)
+        
+        //ダウンロード URL
+            let storageRef = Storage.storage().reference(forURL: "gs://joushinomimi.appspot.com")
+            // Create a reference to the file you want to download
+            let starsRef = storageRef.child("users/\(Auth.auth().currentUser!.uid)/profile-picture.jpg")
+
+            // Fetch the download URL
+            starsRef.downloadURL { url, error in
+              if let error = error {
+                // Handle any errors
+                print(error)
+                return
+              } else {
+                // Get the download URL for 'images/stars.jpg'
+                print("Image URL: \((url?.absoluteString)!)")
+                //Kingfisher
+                let url = URL(string: (url?.absoluteString)!)
+                self.imageView.kf.setImage(with: url)
+              }
+
+            }
+        
+        
 
         // 表示名とを取得してTextFieldに設定する
         let user = Auth.auth().currentUser
@@ -112,13 +136,25 @@ class SettingViewController: UIViewController,UIImagePickerControllerDelegate, U
     // CLImageEditorで加工が終わったときに呼ばれるメソッド
     func imageEditor(_ editor: CLImageEditor!, didFinishEditingWith image: UIImage!) {
         
+        // 画面を閉じるコマンド
+        editor.dismiss(animated: true, completion: nil)
+        //イメージビューに反映する
+        self.imageView.image = image!
+        
+         print("DEBUG_PRINT: 画像を編集して選択しました。")
+    
+    }
+    
+    @IBAction func imageSaveButton(_ sender: Any) {
         let storage = Storage.storage().reference()
         //プロフィール画像の変更
         let changeRequest = Auth.auth().currentUser!.createProfileChangeRequest()
         //画像を圧縮
-        let data = imageView.image!.jpegData(compressionQuality: 0.9)!
+        let data = imageView.image!.jpegData(compressionQuality: 0.01)!
+        //uidの場所
+        let user = Auth.auth().currentUser!
         
-        let photoRef = storage.child("users/\(Auth.auth().currentUser!.uid)/profile-picture.jpg")
+        let photoRef = storage.child("users/\(user.uid)/profile-picture.jpg")
         
         //storageに画像を送信
         //成功すればmetaDataへ、失敗すればerrorに値が入る
@@ -138,11 +174,7 @@ class SettingViewController: UIViewController,UIImagePickerControllerDelegate, U
                 guard let downloadURL = url else {
                     return
                 }
-                
-//                let timeLineDB = Database.database().reference().child(Const.PostPath)
-//                let timeLineInfo = ["profileImage":url?.absoluteString as Any]
-//                timeLineDB.updateChildValues(timeLineInfo)
-//                
+                                
                 //nilじゃなかったら、画像を変更する
                 changeRequest.photoURL = downloadURL
                 changeRequest.commitChanges { (error) in
@@ -150,13 +182,9 @@ class SettingViewController: UIViewController,UIImagePickerControllerDelegate, U
                         print(error)
                     }
                 }
-                // 画面を閉じるコマンド
-                editor.dismiss(animated: true, completion: nil)
             }
+             print("DEBUG_PRINT: 画像がstorageに保存されました。")
         }
-        //イメージビューに反映する
-        self.imageView.image = image!
-    
     }
     // ログアウトボタンをタップしたときに呼ばれるメソッド
     @IBAction func handleLogoutButton(_ sender: Any) {
@@ -165,6 +193,7 @@ class SettingViewController: UIViewController,UIImagePickerControllerDelegate, U
 
         // ログイン画面を表示する
         let loginViewController = self.storyboard?.instantiateViewController(withIdentifier: "Login")
+        loginViewController?.modalPresentationStyle = .fullScreen
         self.present(loginViewController!, animated: true, completion: nil)
 
         // ログイン画面から戻ってきた時のためにホーム画面（index = 0）を選択している状態にしておく

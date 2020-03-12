@@ -1,7 +1,8 @@
 import UIKit
 import Firebase
-import FirebaseUI
+//import FirebaseUI
 import SVProgressHUD
+import Kingfisher
 
 class PostViewController: UIViewController {
     
@@ -21,18 +22,37 @@ class PostViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-        
+//        //FirebaseUI
+//            let storageRef = Storage.storage().reference()
+//            // Reference to an image file in Firebase Storage
+//            let reference = storageRef.child("users/\(Auth.auth().currentUser!.uid)/profile-picture.jpg")
+//            // UIImageView in your ViewController
+//            let imageView: UIImageView = self.profileImageView
+//            // Placeholder image
+//            let placeholderImage = UIImage(named: "placeholder.jpg")
+//            // Load the image using SDWebImage
+//            imageView.sd_setImage(with: reference, placeholderImage: placeholderImage)
 
-        //FirebaseUI
-            let storageRef = Storage.storage().reference()
-            // Reference to an image file in Firebase Storage
-            let reference = storageRef.child("users/\(Auth.auth().currentUser!.uid)/profile-picture.jpg")
-            // UIImageView in your ViewController
-            let imageView: UIImageView = self.profileImageView
-            // Placeholder image
-            let placeholderImage = UIImage(named: "placeholder.jpg")
-            // Load the image using SDWebImage
-            imageView.sd_setImage(with: reference, placeholderImage: placeholderImage)
+        //ダウンロード URL
+            let storageRef = Storage.storage().reference(forURL: "gs://joushinomimi.appspot.com")
+            // Create a reference to the file you want to download
+            let starsRef = storageRef.child("users/\(Auth.auth().currentUser!.uid)/profile-picture.jpg")
+
+            // Fetch the download URL
+            starsRef.downloadURL { url, error in
+              if let error = error {
+                // Handle any errors
+                print(error)
+                return
+              } else {
+                // Get the download URL for 'images/stars.jpg'
+                print("Image URL: \((url?.absoluteString)!)")
+                //Kingfisher
+                let url = URL(string: (url?.absoluteString)!)
+                self.profileImageView.kf.setImage(with: url)
+              }
+
+            }
         
         // 受け取った画像をImageViewに設定する
         self.imageView.image = image
@@ -45,7 +65,11 @@ class PostViewController: UIViewController {
         commentView.text = commentTextField.text
         commentTextField.text = ""
         
+        // キーボードを閉じる
+        commentTextField.endEditing(true)
+        
     }
+    
     //画像を選択するボタン
     @IBAction func imageSelectButton(_ sender: Any) {
         
@@ -68,9 +92,7 @@ class PostViewController: UIViewController {
         // postDataに必要な情報を取得しておく
         let time = Date.timeIntervalSinceReferenceDate
         let name = Auth.auth().currentUser?.displayName
-//        let storage = Storage.storage().reference()
-//        let profileImage = storage.child("users/\(Auth.auth().currentUser!.uid)/profile-picture.jpg")
-//        let profileImage = Auth.auth().currentUser?.photoURL
+
         // 辞書を作成してFirebaseに保存する
         let postRef = Database.database().reference().child(Const.PostPath)
         

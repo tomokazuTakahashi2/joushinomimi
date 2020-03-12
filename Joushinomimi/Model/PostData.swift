@@ -8,7 +8,6 @@
 
 import UIKit
 import Firebase
-//import Kingfisher
 
 class PostData: NSObject {
     var id: String?

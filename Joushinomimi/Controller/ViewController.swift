@@ -24,6 +24,7 @@ class ViewController: UIViewController {
         if Auth.auth().currentUser == nil {
             // ログインしていないときの処理
             let loginViewController = self.storyboard?.instantiateViewController(withIdentifier: "Login")
+            loginViewController?.modalPresentationStyle = .fullScreen
             self.present(loginViewController!, animated: true, completion: nil)
         }
     }
