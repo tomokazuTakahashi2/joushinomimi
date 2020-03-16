@@ -6,38 +6,46 @@
 //  Copyright © 2020 takahashi. All rights reserved.
 //
 
-//import UIKit
-//
-//class SearchViewController: UIViewController{
-//
-//    var searchController: UISearchController!
-//    
-//    override func viewDidLoad() {
-//        super.viewDidLoad()
-//        
-//        //検索結果を表示するSearchResultViewControllerのインスタンスを生成
-//        let searchResultViewController = SearchResultViewController()
-//        
-//        //UISearchControllerのインスタンス生成＆検索結果画面をSearchResultViewControllerに指定
-//        searchController = UISearchController(searchResultsController: searchResultViewController)
-//        
-//        //このクラスを表示の起点とする
-//        self.definesPresentationContext = true
-//        
-//        //ナビゲーションバーに検索窓を表示する
-//        self.navigationItem.searchController = searchController
-//        
-//        //ナビゲーションバーにタイトルを入れる
-//        self.title = "検索"
-//        self.navigationController?.navigationBar.prefersLargeTitles = true
-//        self.navigationItem.largeTitleDisplayMode = .automatic
-//        
-//        //検索処理をどのクラスで処理するかを指定
-//        //SearchResultViewControllerを指定
-//        searchController.searchResultsUpdater = searchResultViewController
-//        
-//        
-//        
-//    }
-//
-//}
+import UIKit
+
+
+class SearchViewController: UIViewController,UISearchBarDelegate{
+    
+    
+    @IBOutlet var searchBar: UISearchBar!
+    
+
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        // デリゲートを設定
+        searchBar.delegate = self
+        //キャンセルボタンを表示
+        searchBar.showsCancelButton = true
+        
+    }
+
+       
+       // SearchBarのデリゲードメソッド
+       func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+           // キャンセルされた場合、検索は行わない。
+           searchBar.text = ""
+           self.view.endEditing(true)
+            print("検索をしません")
+       }
+       //検索ボタンをクリック
+       func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+            // キーボードを閉じる。
+            self.view.endEditing(true)
+//            // 検索処理を実行する。
+//            searchItems(searchText: searchBar.text! as String)
+
+            dismiss(animated: true, completion: nil)
+            
+       }
+
+
+
+}
+

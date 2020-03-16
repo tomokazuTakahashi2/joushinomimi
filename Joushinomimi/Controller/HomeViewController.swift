@@ -9,19 +9,18 @@
 import UIKit
 import Firebase
 
-class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDelegate,UISearchBarDelegate {
-
+class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDelegate{
+    
     @IBOutlet weak var tableView: UITableView!
 
     var postArray: [PostData] = []
-    var SearchBar: UISearchBar!
 
     // DatabaseのobserveEventの登録状態を表す
     var observing = false
-
+//MARK: - viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         tableView.delegate = self
         tableView.dataSource = self
 
@@ -35,11 +34,10 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         tableView.rowHeight = UITableView.automaticDimension
         // テーブル行の高さの概算値を設定しておく
         // 高さ概算値 = 「縦横比1:1のUIImageViewの高さ(=画面幅)」+「いいねボタン、キャプションラベル、その他余白の高さの合計概算(=100pt)」
-        tableView.estimatedRowHeight = UIScreen.main.bounds.width + 100
-        
+        tableView.estimatedRowHeight = UIScreen.main.bounds.width + 100  
 
     }
-
+//MARK: - viewWillAppear
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
        
@@ -107,8 +105,11 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
                 observing = false
             }
         }
+        
     }
-
+    
+    
+    //MARK: - テーブルビュー
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return postArray.count
     }
@@ -126,7 +127,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 300
     }
-
+    //MARK: - ハートボタン
     // セル内のボタンがタップされた時に呼ばれるメソッド
     @objc func handleButton(_ sender: UIButton, forEvent event: UIEvent) {
         print("DEBUG_PRINT: likeボタンがタップされました。")
@@ -163,19 +164,6 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
 
         }
     }
-
+   
 }
-class AllSelectableTextView: UITextView {
 
-    override func canPerformAction(_ action: Selector, withSender sender: Any?) -> Bool {
-
-        // すべて選択，コピー，共有のみ利用可能
-        if action == #selector(selectAll(_:)) ||
-            action == #selector(copy(_:)) ||
-            action == Selector(("_share:")) {
-            return true
-        } else {
-            return false
-        }
-    }
-}

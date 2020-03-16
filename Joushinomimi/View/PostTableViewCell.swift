@@ -16,7 +16,8 @@ class PostTableViewCell: UITableViewCell {
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var captionLabel: UILabel!
     @IBOutlet weak var profileImage: UIImageView!
-    @IBOutlet weak var commentLabel: UILabel!
+    @IBOutlet weak var commentLabel: UITextView!
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -28,6 +29,7 @@ class PostTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+
 
     func setPostData(_ postData: PostData) {
 //        self.postImageView.image = postData.image

@@ -6,39 +6,41 @@
 //  Copyright © 2020 takahashi. All rights reserved.
 //
 
-//import UIKit
-//
-//class SearchResultViewController: UIViewController,UISearchResultsUpdating {
-//    
-//    var dataList:[SampleModel] = []
-//    
-//
-//    override func viewDidLoad() {
-//        super.viewDidLoad()
-//
-//        // Do any additional setup after loading the view.
-//    }
-//    func updateSearchResults(for searchController: UISearchController) {
-//        //UISearchControllerの検索窓に入力した文字列を取得
-//        if let text = searchController.searchBar.text{
+import UIKit
+import Firebase
+
+class SearchResultViewController: UIViewController,UISearchResultsUpdating, UITableViewDelegate, UITableViewDataSource {
+        
+    
+    var postArray: [PostData] = []
+    var ref: DatabaseReference! = Database.database().reference()
+    
+    @IBOutlet weak var searchTableView: UITableView!
+    
+    //MARK: - viewDidLoad
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        searchTableView.delegate = self
+        searchTableView.dataSource = self
+    }
+    
+    //MARK: - UISearchControllerから受信
+    func updateSearchResults(for searchController: UISearchController) {
+        //UISearchControllerの検索窓に入力した文字列を取得
+        if let text = searchController.searchBar.text{
+            print(text)
 //            //データ取得関数を呼び出す
 //            self.reloadListDatas(text)
-//        }
-//    }
-//    func reloadListDatas(_text:String){
-//        //文字列の時は処理を行わない
-//        if text.isEmpty{
-//            return
-//        }
-//        //セッションのコンフィグを設定・今回はデフォルトの設定
-//        let config = URLSessionConfiguration.default
-//        //NSURLSessionのインスタンスを生成
-//        let session = URLSession(configuration: config)
-//        //検索する文字列が日本語の場合もあるため、エンコードする
-//        let urlString = "https://"
-//    
-//    }
-//    
-//
-//
-//}
+        }
+    }
+    //MARK: - テーブルビュー
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        <#code#>
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        <#code#>
+    }
+    
+}
