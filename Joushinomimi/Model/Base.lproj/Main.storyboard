@@ -237,19 +237,40 @@
         <scene sceneID="tkq-NW-TDa">
             <objects>
                 <viewController storyboardIdentifier="Search" id="ACP-IQ-H7H" customClass="SearchViewController" customModule="Joushinomimi" customModuleProvider="target" sceneMemberID="viewController">
-                    <searchBar key="view" contentMode="redraw" id="G5K-Vi-tvT">
+                    <view key="view" contentMode="scaleToFill" id="ZgJ-2b-yRO">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                        <textInputTraits key="textInputTraits"/>
-                    </searchBar>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="dkn-WS-zgV">
+                                <rect key="frame" x="0.0" y="44" width="414" height="56"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Xhs-Ts-fIr">
+                                <rect key="frame" x="0.0" y="100" width="414" height="762"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="Xhs-Ts-fIr" firstAttribute="bottom" secondItem="Em0-Mj-acz" secondAttribute="bottom" id="AIX-Gb-vKz"/>
+                            <constraint firstItem="dkn-WS-zgV" firstAttribute="leading" secondItem="Em0-Mj-acz" secondAttribute="leading" id="D0A-1f-G3g"/>
+                            <constraint firstItem="dkn-WS-zgV" firstAttribute="trailing" secondItem="Em0-Mj-acz" secondAttribute="trailing" id="OXb-DF-qOR"/>
+                            <constraint firstItem="Xhs-Ts-fIr" firstAttribute="trailing" secondItem="Em0-Mj-acz" secondAttribute="trailing" id="W4w-ny-5Ni"/>
+                            <constraint firstItem="Xhs-Ts-fIr" firstAttribute="top" secondItem="dkn-WS-zgV" secondAttribute="bottom" id="oiS-eP-0ZG"/>
+                            <constraint firstItem="dkn-WS-zgV" firstAttribute="top" secondItem="Em0-Mj-acz" secondAttribute="top" id="pR3-dO-reo"/>
+                            <constraint firstItem="Xhs-Ts-fIr" firstAttribute="leading" secondItem="Em0-Mj-acz" secondAttribute="leading" id="y8N-zL-eEg"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Em0-Mj-acz"/>
+                    </view>
                     <navigationItem key="navigationItem" title="検索" id="j4M-Gc-gzY"/>
                     <connections>
-                        <outlet property="searchBar" destination="G5K-Vi-tvT" id="KYc-9f-L09"/>
+                        <outlet property="searchBar" destination="dkn-WS-zgV" id="VhB-pR-hHo"/>
+                        <outlet property="searchTableView" destination="Xhs-Ts-fIr" id="bIs-Xe-oeR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fqv-Iq-Xts" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1806" y="832"/>
+            <point key="canvasLocation" x="1805.7971014492755" y="831.69642857142856"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="9kZ-3T-zQm">
@@ -295,36 +316,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NDc-9g-3HQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="986" y="832"/>
-        </scene>
-        <!--Search Result View Controller-->
-        <scene sceneID="dCu-bH-79z">
-            <objects>
-                <viewController id="LeL-78-pkW" customClass="SearchResultViewController" customModule="Joushinomimi" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Pay-gn-RCX">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="xba-zd-105">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                            </tableView>
-                        </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <constraints>
-                            <constraint firstItem="xba-zd-105" firstAttribute="top" secondItem="dji-Bo-dQt" secondAttribute="top" id="5cb-a3-kvs"/>
-                            <constraint firstItem="dji-Bo-dQt" firstAttribute="bottom" secondItem="xba-zd-105" secondAttribute="bottom" id="Yny-BS-CLe"/>
-                            <constraint firstItem="xba-zd-105" firstAttribute="leading" secondItem="dji-Bo-dQt" secondAttribute="leading" id="tEs-NI-a3u"/>
-                            <constraint firstItem="dji-Bo-dQt" firstAttribute="trailing" secondItem="xba-zd-105" secondAttribute="trailing" id="ukC-wN-Tw0"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="dji-Bo-dQt"/>
-                    </view>
-                    <connections>
-                        <outlet property="searchTableView" destination="xba-zd-105" id="kaS-L1-bfs"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Ufd-8j-EyN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1806" y="1554"/>
         </scene>
         <!--Image Select View Controller-->
         <scene sceneID="XKk-iz-cck">
@@ -609,24 +600,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m1T-oD-jyT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1805.7971014492755" y="-565.17857142857144"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="wSO-Ru-YCh">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="sU0-VD-9gB" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ya8-ts-tHa">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="ACP-IQ-H7H" kind="relationship" relationship="rootViewController" id="ldZ-R8-nve"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="FvR-gn-o4K" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1806" y="129"/>
         </scene>
     </scenes>
     <resources>
