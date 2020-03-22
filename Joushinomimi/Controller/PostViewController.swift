@@ -1,6 +1,5 @@
 import UIKit
 import Firebase
-import SVProgressHUD
 import Kingfisher
 
 class PostViewController: UIViewController {
@@ -78,9 +77,6 @@ class PostViewController: UIViewController {
         
         let postDic = ["name": name!,"caption": textField.text!, "time": String(time), "postComment": commentView.text!,"profileImage": profileImageString] 
         postRef.childByAutoId().setValue(postDic)
-
-        // HUDで投稿完了を表示する
-        SVProgressHUD.showSuccess(withStatus: "投稿しました")
 
         // 全てのモーダルを閉じる
         UIApplication.shared.keyWindow?.rootViewController?.dismiss(animated: true, completion: nil)

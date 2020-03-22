@@ -12,7 +12,7 @@
 		6448DFAD23F71B7300E99BC1 /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6448DFAB23F71B7300E99BC1 /* PostTableViewCell.swift */; };
 		6448DFAE23F71B7300E99BC1 /* PostTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6448DFAC23F71B7300E99BC1 /* PostTableViewCell.xib */; };
 		6448DFB023F8237C00E99BC1 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6448DFAF23F8237C00E99BC1 /* SearchViewController.swift */; };
-		6448DFB223F827DD00E99BC1 /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6448DFB123F827DD00E99BC1 /* NotificationViewController.swift */; };
+		64AA8B1F24279B2D00F5B7FB /* NewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64AA8B1E24279B2D00F5B7FB /* NewsViewController.swift */; };
 		64B1151B2417CF6800D1CAE7 /* LoginNextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64B1151A2417CF6800D1CAE7 /* LoginNextViewController.swift */; };
 		64B1151D2417D0BF00D1CAE7 /* NewLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64B1151C2417D0BF00D1CAE7 /* NewLoginViewController.swift */; };
 		64E83A4C23F6CD1A00A8D53F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64E83A4B23F6CD1A00A8D53F /* AppDelegate.swift */; };
@@ -36,7 +36,8 @@
 		6448DFAB23F71B7300E99BC1 /* PostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
 		6448DFAC23F71B7300E99BC1 /* PostTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostTableViewCell.xib; sourceTree = "<group>"; };
 		6448DFAF23F8237C00E99BC1 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
-		6448DFB123F827DD00E99BC1 /* NotificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewController.swift; sourceTree = "<group>"; };
+		64AA8B1D24278D5500F5B7FB /* Joushinomimi.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Joushinomimi.entitlements; sourceTree = "<group>"; };
+		64AA8B1E24279B2D00F5B7FB /* NewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewController.swift; sourceTree = "<group>"; };
 		64B1151A2417CF6800D1CAE7 /* LoginNextViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginNextViewController.swift; sourceTree = "<group>"; };
 		64B1151C2417D0BF00D1CAE7 /* NewLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewLoginViewController.swift; sourceTree = "<group>"; };
 		64E83A4823F6CD1A00A8D53F /* Joushinomimi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Joushinomimi.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -96,8 +97,8 @@
 				64B1151C2417D0BF00D1CAE7 /* NewLoginViewController.swift */,
 				64B1151A2417CF6800D1CAE7 /* LoginNextViewController.swift */,
 				6448DFAF23F8237C00E99BC1 /* SearchViewController.swift */,
-				6448DFB123F827DD00E99BC1 /* NotificationViewController.swift */,
 				64E83A6123F6CF9900A8D53F /* HomeViewController.swift */,
+				64AA8B1E24279B2D00F5B7FB /* NewsViewController.swift */,
 				64E83A6523F6CFC000A8D53F /* PostViewController.swift */,
 				64E83A6723F6CFD100A8D53F /* SettingViewController.swift */,
 			);
@@ -135,6 +136,7 @@
 		64E83A4A23F6CD1A00A8D53F /* Joushinomimi */ = {
 			isa = PBXGroup;
 			children = (
+				64AA8B1D24278D5500F5B7FB /* Joushinomimi.entitlements */,
 				64E83A4B23F6CD1A00A8D53F /* AppDelegate.swift */,
 				64E83A4D23F6CD1A00A8D53F /* SceneDelegate.swift */,
 				6448DFA223F6FEC800E99BC1 /* Model */,
@@ -182,6 +184,9 @@
 		64E83A4023F6CD1A00A8D53F /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				KnownAssetTags = (
+					Font,
+				);
 				LastSwiftUpdateCheck = 1130;
 				LastUpgradeCheck = 1130;
 				ORGANIZATIONNAME = takahashi;
@@ -281,8 +286,8 @@
 				6448DFAA23F70D7B00E99BC1 /* PostData.swift in Sources */,
 				64B1151D2417D0BF00D1CAE7 /* NewLoginViewController.swift in Sources */,
 				64E83A5023F6CD1A00A8D53F /* ViewController.swift in Sources */,
-				6448DFB223F827DD00E99BC1 /* NotificationViewController.swift in Sources */,
 				64E83A4C23F6CD1A00A8D53F /* AppDelegate.swift in Sources */,
+				64AA8B1F24279B2D00F5B7FB /* NewsViewController.swift in Sources */,
 				64E83A4E23F6CD1A00A8D53F /* SceneDelegate.swift in Sources */,
 				6448DFA623F70BB900E99BC1 /* Const.swift in Sources */,
 			);
@@ -429,6 +434,7 @@
 			baseConfigurationReference = 1BFA94647A129AC71EE94309 /* Pods-Joushinomimi.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Joushinomimi/Joushinomimi.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = J8LP9MW8T8;
 				INFOPLIST_FILE = Joushinomimi/Info.plist;
@@ -448,6 +454,7 @@
 			baseConfigurationReference = CB2B9C7F7826993E5FD618FB /* Pods-Joushinomimi.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Joushinomimi/Joushinomimi.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = J8LP9MW8T8;
 				INFOPLIST_FILE = Joushinomimi/Info.plist;

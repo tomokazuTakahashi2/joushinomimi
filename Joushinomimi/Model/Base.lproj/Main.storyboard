@@ -372,10 +372,10 @@
             </objects>
             <point key="canvasLocation" x="2635" y="1554"/>
         </scene>
-        <!--Notification View Controller-->
+        <!--News View Controller-->
         <scene sceneID="a93-Vx-NwB">
             <objects>
-                <viewController storyboardIdentifier="Notification" id="uVn-BT-EKM" customClass="NotificationViewController" customModule="Joushinomimi" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="News" id="uVn-BT-EKM" customClass="NewsViewController" customModule="Joushinomimi" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ByT-nV-t2r">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

@@ -69,13 +69,13 @@ class SearchViewController: UIViewController,UISearchBarDelegate, UITableViewDel
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
        
-
+        //もしカレントユーザーがnilだったら、
         if Auth.auth().currentUser != nil {
+
             if self.observing == false {
                 // 要素が追加されたらsearchResultに追加してTableViewを再表示する
                 let postsRef = Database.database().reference().child(Const.PostPath)
                 postsRef.observe(.childAdded, with: { snapshot in
-                    print("DEBUG_PRINT: 要素が追加されました。")
 
                     // PostDataクラスを生成して受け取ったデータを設定する
                     if let uid = Auth.auth().currentUser?.uid {
@@ -88,7 +88,6 @@ class SearchViewController: UIViewController,UISearchBarDelegate, UITableViewDel
                 })
                 // 要素が変更されたら該当のデータをsearchResultから一度削除した後に新しいデータを追加してTableViewを再表示する
                 postsRef.observe(.childChanged, with: { snapshot in
-                    print("DEBUG_PRINT: 要素が変更されました。")
 
                     if let uid = Auth.auth().currentUser?.uid {
                         // PostDataクラスを生成して受け取ったデータを設定する
