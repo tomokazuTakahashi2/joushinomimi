@@ -15,11 +15,10 @@ class SearchViewController: UIViewController,UISearchBarDelegate, UITableViewDel
     //Firebase参照
     var ref: DatabaseReference!
     
-    var postArray: [PostData] = []
     // 検索用配列
     var items : [PostData] = []
     // 検索結果配列
-    var searchResult : Array<String> = []
+    var searchResult : [PostData] = []
     
     // DatabaseのobserveEventの登録状態を表す
     var observing = false
@@ -56,21 +55,12 @@ class SearchViewController: UIViewController,UISearchBarDelegate, UITableViewDel
         //FirebaseDBから配列へ
         let postRef = Database.database().reference()
         postRef.child("posts").observe(DataEventType.value, with: { (snapshot) in
-
-            
-            if let uid = Auth.auth().currentUser?.uid {
-               let postData = PostData(snapshot: snapshot, myId: uid)
-                
-                
-                self.items = [postData]
+            guard let uid = Auth.auth().currentUser?.uid else { return }
+            for child in snapshot.children {
+                let snap = child as! DataSnapshot
+                self.items.append(PostData(snapshot: snap, myId: uid))
             }
-
-                //tableViewを再読み込みする
-                self.searchTableView.reloadData()
-            
-
          })
-
     }
     //MARK: - viewWillAppear
     override func viewWillAppear(_ animated: Bool) {
@@ -79,7 +69,7 @@ class SearchViewController: UIViewController,UISearchBarDelegate, UITableViewDel
 
         if Auth.auth().currentUser != nil {
             if self.observing == false {
-                // 要素が追加されたらpostArrayに追加してTableViewを再表示する
+                // 要素が追加されたらsearchResultに追加してTableViewを再表示する
                 let postsRef = Database.database().reference().child(Const.PostPath)
                 postsRef.observe(.childAdded, with: { snapshot in
                     print("DEBUG_PRINT: 要素が追加されました。")
@@ -87,13 +77,13 @@ class SearchViewController: UIViewController,UISearchBarDelegate, UITableViewDel
                     // PostDataクラスを生成して受け取ったデータを設定する
                     if let uid = Auth.auth().currentUser?.uid {
                         let postData = PostData(snapshot: snapshot, myId: uid)
-                        self.postArray.insert(postData, at: 0)
+                        self.searchResult.insert(postData, at: 0)
 
                         // TableViewを再表示する
                         self.searchTableView.reloadData()
                     }
                 })
-                // 要素が変更されたら該当のデータをpostArrayから一度削除した後に新しいデータを追加してTableViewを再表示する
+                // 要素が変更されたら該当のデータをsearchResultから一度削除した後に新しいデータを追加してTableViewを再表示する
                 postsRef.observe(.childChanged, with: { snapshot in
                     print("DEBUG_PRINT: 要素が変更されました。")
 
@@ -103,18 +93,18 @@ class SearchViewController: UIViewController,UISearchBarDelegate, UITableViewDel
 
                         // 保持している配列からidが同じものを探す
                         var index: Int = 0
-                        for post in self.postArray {
+                        for post in self.searchResult {
                             if post.id == postData.id {
-                                index = self.postArray.firstIndex(of: post)!
+                                index = self.searchResult.firstIndex(of: post)!
                                 break
                             }
                         }
 
                         // 差し替えるため一度削除する
-                        self.postArray.remove(at: index)
+                        self.searchResult.remove(at: index)
 
                         // 削除したところに更新済みのデータを追加する
-                        self.postArray.insert(postData, at: index)
+                        self.searchResult.insert(postData, at: index)
 
                         // TableViewを再表示する
                         self.searchTableView.reloadData()
@@ -129,7 +119,7 @@ class SearchViewController: UIViewController,UISearchBarDelegate, UITableViewDel
             if observing == true {
                 // ログアウトを検出したら、一旦テーブルをクリアしてオブザーバーを削除する。
                 // テーブルをクリアする
-                postArray = []
+                searchResult = []
                 searchTableView.reloadData()
                 // オブザーバーを削除する
                 let postsRef = Database.database().reference().child(Const.PostPath)
@@ -142,59 +132,54 @@ class SearchViewController: UIViewController,UISearchBarDelegate, UITableViewDel
         }
         
     }
-//// MARK: - Search Bar Delegate Methods
+// MARK: - Search Bar Delegate Methods
 //    // テキストが変更される毎に呼ばれる
 //    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
 //        //検索する
 //        searchItems(searchText: searchText)
 //    }
-//    //キャンセルボタンをクリック
-//       func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-//           // キャンセルされた場合、検索は行わない。
-//           searchBar.text = ""
-//           self.view.endEditing(true)
-//            print("検索をしません")
-//       }
-//    //検索ボタンをクリック
-//       func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-//            
-//            // キーボードを閉じる。
-//            self.view.endEditing(true)
-//            //検索する
-//            searchItems(searchText: searchBar.text! as String)
-//            
-//       }
+    //キャンセルボタンをクリック
+       func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+           // キャンセルされた場合、検索は行わない。
+           searchBar.text = ""
+           self.view.endEditing(true)
+            print("検索をしません")
+       }
+    //検索ボタンをクリック
+       func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
 
-//    //MARK: - 渡された文字列を含む要素を検索し、テーブルビューを再表示する
-//    func searchItems(searchText: String) {
-//        //サーチテクストが空欄じゃなかったら、
-//        if searchText != "" {
-//            //検索結果配列に検索用配列をフィルタリングしたものを入れる
-//            searchResult = items.filter { item in
-//                print("検索か結果が出ました")
-//                return item.postComment.cotains(searchText)
-//
-//            } as Array
-//        //そうでなかったら、
-//        } else {
-//            print("検索結果は出ませんでした")
-//            //検索結果配列に検索用配列をそのまま入れる
-//            searchResult = items
-//        }
-//        //tableViewを再読み込みする
-//        searchTableView.reloadData()
-//    }
+            // キーボードを閉じる。
+            self.view.endEditing(true)
+            //検索する
+            searchItems(searchText: searchBar.text! as String)
+
+       }
+
+    //MARK: - 渡された文字列を含む要素を検索し、テーブルビューを再表示する
+    func searchItems(searchText: String) {
+        ///サーチテクストが空欄じゃなかったら、
+        if searchText != "" {
+            //検索結果配列に検索用配列をフィルタリングしたものを入れる
+            searchResult = items.filter { item in
+                item.postComment?.contains(searchText) ?? false
+            }
+            print("検索結果" + String(searchResult.count))
+        }
+        
+        //tableViewを再読み込みする
+        searchTableView.reloadData()
+    }
     
 //MARK: - TableView Delegate Methods
     //セルの数を決める
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return postArray.count
+        return searchResult.count
     }
     //セルを構築する際に呼ばれる
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         // セルを取得してデータを設定する
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! PostTableViewCell
-        cell.setPostData(postArray[indexPath.row])
+        cell.setPostData(searchResult[indexPath.row])
 
         // セル内のボタンのアクションをソースコードで設定する
         cell.likeButton.addTarget(self, action:#selector(handleButton(_:forEvent:)), for: .touchUpInside)
@@ -216,7 +201,7 @@ class SearchViewController: UIViewController,UISearchBarDelegate, UITableViewDel
          let indexPath = searchTableView.indexPathForRow(at: point)
 
          // 配列からタップされたインデックスのデータを取り出す
-         let postData = postArray[indexPath!.row]
+         let postData = searchResult[indexPath!.row]
 
          // Firebaseに保存するデータの準備
          if let uid = Auth.auth().currentUser?.uid {
