@@ -53,6 +53,10 @@ class LoginNextViewController: UIViewController {
             }
         }
     }
-
+    //画面をタップしたらキーボードが閉じる
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        
+        self.view.endEditing(true)
+    }
 
 }

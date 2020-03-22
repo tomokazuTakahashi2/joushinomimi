@@ -24,6 +24,7 @@ class SettingViewController: UIViewController,UIImagePickerControllerDelegate, U
     @IBOutlet weak var displayNameTextField: UITextField!
     @IBOutlet weak var imageView: UIImageView!
     
+//MARK: - viewWillAppear
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
@@ -68,7 +69,7 @@ class SettingViewController: UIViewController,UIImagePickerControllerDelegate, U
         }
         
     }
-    // 表示名変更ボタンをタップしたときに呼ばれるメソッド
+//MARK: - 表示名変更ボタンをタップしたときに呼ばれるメソッド
     @IBAction func handleChangeButton(_ sender: Any) {
         if let displayName = displayNameTextField.text {
 
@@ -103,7 +104,7 @@ class SettingViewController: UIViewController,UIImagePickerControllerDelegate, U
         displayNameTextField.text = ""
     }
 
-    //プロフィール画像変更ボタン
+//MARK: - プロフィール画像変更ボタン
     @IBAction func imageChoiceButton(_ sender: Any) {
         // ライブラリ（カメラロール）を指定してピッカーを開く
         if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
@@ -144,7 +145,7 @@ class SettingViewController: UIViewController,UIImagePickerControllerDelegate, U
          print("DEBUG_PRINT: 画像を編集して選択しました。")
     
     }
-    
+//プロフィール画像をStorageに保存
     @IBAction func imageSaveButton(_ sender: Any) {
         let storage = Storage.storage().reference()
         //プロフィール画像の変更
@@ -186,7 +187,7 @@ class SettingViewController: UIViewController,UIImagePickerControllerDelegate, U
              print("DEBUG_PRINT: 画像がstorageに保存されました。")
         }
     }
-    // ログアウトボタンをタップしたときに呼ばれるメソッド
+//MARK: - ログアウトボタンをタップしたときに呼ばれるメソッド
     @IBAction func handleLogoutButton(_ sender: Any) {
         // ログアウトする
         try! Auth.auth().signOut()

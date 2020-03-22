@@ -32,10 +32,7 @@ class NewLoginViewController: UIViewController {
                     print("DEBUG_PRINT: 何かが空文字です。")
                     SVProgressHUD.showError(withStatus: "必要項目を入力して下さい")
                     return
-    //            }else if iconImage == nil{
-    //                print("DEBUG_PRINT: 画像が空です。")
-    //                SVProgressHUD.showError(withStatus: "画像を選択して下さい")
-    //                return
+    
                 }
             
 
@@ -78,4 +75,9 @@ class NewLoginViewController: UIViewController {
                 }
             }
         }
+    //画面をタップしたらキーボードが閉じる
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        
+        self.view.endEditing(true)
+    }
 }
