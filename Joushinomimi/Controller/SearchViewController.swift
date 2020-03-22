@@ -52,12 +52,15 @@ class SearchViewController: UIViewController,UISearchBarDelegate, UITableViewDel
         //キャンセルボタンを表示
         searchBar.showsCancelButton = true
         
-        //FirebaseDBから配列へ
+    //FirebaseDBから配列へ
         let postRef = Database.database().reference()
         postRef.child("posts").observe(DataEventType.value, with: { (snapshot) in
+            //uidがAuth.auth().currentUser?.uidかどうかをチェック
             guard let uid = Auth.auth().currentUser?.uid else { return }
+            //snapshot.childrenから一つずつ取り出す
             for child in snapshot.children {
                 let snap = child as! DataSnapshot
+                //検索用配列に追加する
                 self.items.append(PostData(snapshot: snap, myId: uid))
             }
          })
@@ -138,6 +141,7 @@ class SearchViewController: UIViewController,UISearchBarDelegate, UITableViewDel
 //        //検索する
 //        searchItems(searchText: searchText)
 //    }
+    
     //キャンセルボタンをクリック
        func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
            // キャンセルされた場合、検索は行わない。
