@@ -2,6 +2,16 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoadsUsageDescription</key>
+		<dict/>
+		<key>NSExceptionDomains</key>
+		<dict>
+			<key>newsapi.org</key>
+			<string></string>
+		</dict>
+	</dict>
 	<key>NSCameraUsageDescription</key>
 	<string>本アプリは画像の投稿および編集のため、カメラの使用許可を求めます。</string>
 	<key>CFBundleDevelopmentRegion</key>
