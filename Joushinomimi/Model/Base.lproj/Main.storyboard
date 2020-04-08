@@ -379,9 +379,35 @@
                     <view key="view" contentMode="scaleToFill" id="ByT-nV-t2r">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="LXo-Td-TQc">
+                                <rect key="frame" x="0.0" y="100" width="414" height="762"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="uVn-BT-EKM" id="B0n-4Q-lwy"/>
+                                    <outlet property="delegate" destination="uVn-BT-EKM" id="6al-iW-en6"/>
+                                </connections>
+                            </tableView>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="bku-Qh-aRb">
+                                <rect key="frame" x="0.0" y="44" width="414" height="56"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="LXo-Td-TQc" firstAttribute="top" secondItem="bku-Qh-aRb" secondAttribute="bottom" id="180-LC-Hqb"/>
+                            <constraint firstItem="oon-s7-cb5" firstAttribute="bottom" secondItem="LXo-Td-TQc" secondAttribute="bottom" id="2DA-nA-v5f"/>
+                            <constraint firstItem="oon-s7-cb5" firstAttribute="trailing" secondItem="LXo-Td-TQc" secondAttribute="trailing" id="3Td-2P-yP8"/>
+                            <constraint firstItem="bku-Qh-aRb" firstAttribute="leading" secondItem="oon-s7-cb5" secondAttribute="leading" id="8BB-Jx-HgE"/>
+                            <constraint firstItem="LXo-Td-TQc" firstAttribute="leading" secondItem="oon-s7-cb5" secondAttribute="leading" id="Tho-HW-Ezl"/>
+                            <constraint firstItem="bku-Qh-aRb" firstAttribute="top" secondItem="oon-s7-cb5" secondAttribute="top" id="YFw-Q7-5oc"/>
+                            <constraint firstItem="bku-Qh-aRb" firstAttribute="trailing" secondItem="oon-s7-cb5" secondAttribute="trailing" id="fOU-BT-iuh"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="oon-s7-cb5"/>
                     </view>
+                    <connections>
+                        <outlet property="newsTableView" destination="LXo-Td-TQc" id="tA6-L3-YZg"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WYq-Nm-gso" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

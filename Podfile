@@ -16,6 +16,7 @@ target 'Joushinomimi' do
   pod 'FirebaseUI/Storage'
   pod 'Kingfisher'
   pod 'Alamofire'
+  pod 'SwiftyJSON'
   
 
 end
