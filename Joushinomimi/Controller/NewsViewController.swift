@@ -24,7 +24,7 @@ class NewsViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
         //カスタムセル
         let nib = UINib(nibName: "NewsTableViewCell", bundle: nil)
-        newsTableView.register(nib, forCellReuseIdentifier: "NewsTableViewCell")
+        newsTableView.register(nib, forCellReuseIdentifier: "NewsCell")
         
         //画面表示時に行う通信処理を追加
         reloadListDatas()
@@ -53,6 +53,8 @@ class NewsViewController: UIViewController, UITableViewDataSource, UITableViewDe
 //                }
 //            }
 //        }
+        // テーブル行の高さをAutoLayoutで自動調整する
+        newsTableView.rowHeight = UITableView.automaticDimension
     }
 //MARK: - reloadListDatas
     func reloadListDatas(){
@@ -85,9 +87,10 @@ class NewsViewController: UIViewController, UITableViewDataSource, UITableViewDe
                 return
             }
             
-            self.dataList = try! JSONDecoder().decode([NewsModel].self, from: jsonData)
-            
-            //メインスレッドに処理を戻す
+            //self.dataList = try! JSONDecoder().decode([NewsModel].self, from: jsonData)
+            let jsonTest = try! JSONDecoder().decode(Test.self, from: jsonData)
+            print(jsonTest)
+                        //メインスレッドに処理を戻す
             DispatchQueue.main.async {
                 //最新のデータに更新する
                 self.newsTableView.reloadData()
@@ -102,14 +105,15 @@ class NewsViewController: UIViewController, UITableViewDataSource, UITableViewDe
         tableView.deselectRow(at: indexPath,animated: true)
         //データを取り出す
         let data = dataList[indexPath.row]
-        //記事のURLを取得する
-        if let url = URL(string: data.link){
-            //SFSafariViewControllerのインスタンスを生成
-            let controller: SFSafariViewController = SFSafariViewController(url: url)
-            
-            //次の画面へ遷移して、表示する
-            self.present(controller,animated: true,completion: nil)
-        }
+//        //記事のURLを取得する
+//        if let url = URL(string: data.link){
+//
+//            //SFSafariViewControllerのインスタンスを生成
+//            let controller: SFSafariViewController = SFSafariViewController(url: url)
+//
+//            //次の画面へ遷移して、表示する
+//            self.present(controller,animated: true,completion: nil)
+//        }
     }
     func numberOfSections(in tableView: UITableView) -> Int {
         //セクションは１つ
@@ -123,14 +127,14 @@ class NewsViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         //作成した「NewsCell」のインスタンスを生成
-        let cell: NewsTableViewCell = tableView.dequeueReusableCell(withIdentifier: "NewsTableViewCell", for: indexPath)as! NewsTableViewCell
+        let cell: NewsTableViewCell = tableView.dequeueReusableCell(withIdentifier: "NewsCell", for: indexPath)as! NewsTableViewCell
         
         //取得したデータを取り出す
         let data = dataList[indexPath.row]
         
-        //日付のデータと記事のタイトルを取得
-        cell.dateLabel.text = data.dateString
-        cell.titleLabel.text = data.title.rendered
+//        //日付のデータと記事のタイトルを取得
+//        cell.dateLabel.text = data.dateString
+//        cell.titleLabel.text = data.title.rendered
         cell.descriptionLabel.text = data.description
         cell.authorLabel.text = data.author
         //cell.urlToImageView.image = data.urlToImage
