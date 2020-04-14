@@ -22,6 +22,9 @@ class NewsViewController: UIViewController, UITableViewDataSource, UITableViewDe
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        newsTableView.delegate = self
+        newsTableView.dataSource = self
+        
         //カスタムセル
         let nib = UINib(nibName: "NewsTableViewCell", bundle: nil)
         newsTableView.register(nib, forCellReuseIdentifier: "NewsCell")
@@ -53,8 +56,8 @@ class NewsViewController: UIViewController, UITableViewDataSource, UITableViewDe
 //                }
 //            }
 //        }
-        // テーブル行の高さをAutoLayoutで自動調整する
-        newsTableView.rowHeight = UITableView.automaticDimension
+        
+        
     }
 //MARK: - reloadListDatas
     func reloadListDatas(){
@@ -88,8 +91,14 @@ class NewsViewController: UIViewController, UITableViewDataSource, UITableViewDe
             }
             
             //self.dataList = try! JSONDecoder().decode([NewsModel].self, from: jsonData)
-            let jsonTest = try! JSONDecoder().decode(Test.self, from: jsonData)
+            let jsonTest = try! JSONDecoder().decode(Test.self, from: jsonData) as Test
             print(jsonTest)
+            
+            if let articles = jsonTest.articles {
+                for newsModel in articles {
+                    self.dataList.append(newsModel)
+                }
+            }
                         //メインスレッドに処理を戻す
             DispatchQueue.main.async {
                 //最新のデータに更新する
@@ -100,11 +109,13 @@ class NewsViewController: UIViewController, UITableViewDataSource, UITableViewDe
         task.resume()
     }
 //MARK: - テーブルビュー
+    //セルがタップされた時に呼ばれる
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         //セルの選択を解除
         tableView.deselectRow(at: indexPath,animated: true)
         //データを取り出す
         let data = dataList[indexPath.row]
+        
 //        //記事のURLを取得する
 //        if let url = URL(string: data.link){
 //
@@ -115,16 +126,17 @@ class NewsViewController: UIViewController, UITableViewDataSource, UITableViewDe
 //            self.present(controller,animated: true,completion: nil)
 //        }
     }
+    //セルのセクション数を決める
     func numberOfSections(in tableView: UITableView) -> Int {
         //セクションは１つ
         return 1
     }
-    
+    //セルの数を決める
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         //取得したセルの数だけセルを表示
         return dataList.count
     }
-    
+    //セルを構築する際に呼ばれる
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         //作成した「NewsCell」のインスタンスを生成
         let cell: NewsTableViewCell = tableView.dequeueReusableCell(withIdentifier: "NewsCell", for: indexPath)as! NewsTableViewCell
@@ -132,16 +144,30 @@ class NewsViewController: UIViewController, UITableViewDataSource, UITableViewDe
         //取得したデータを取り出す
         let data = dataList[indexPath.row]
         
-//        //日付のデータと記事のタイトルを取得
-//        cell.dateLabel.text = data.dateString
-//        cell.titleLabel.text = data.title.rendered
-        cell.descriptionLabel.text = data.description
+        
+        //日付
+        cell.dateLabel.text = data.publishedAt
+        //タイトル
+        cell.titleLabel.text = data.title
+        //本文
+        if let desc = data.description {
+          cell.descriptionLabel.text = desc
+        }
+        //著者
         cell.authorLabel.text = data.author
-        //cell.urlToImageView.image = data.urlToImage
+        //画像
+        if let url = data.urlToImage {
+        //UIImageのExtensionを利用。
+        cell.urlToImageView.image =  UIImage.init(url: url)
+        }
         //セルのインスタンスを返す
         return cell
     }
-            
+    
+    //セルの高さ
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 600
+    }
 
 
 }
