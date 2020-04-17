@@ -17,7 +17,7 @@ struct Test: Codable {
 struct NewsModel: Codable  {
     
     //日付
-    var publishedAt: String = ""
+    var publishedAt: String? = ""
     var dateString: String{
      //NSDateFormatterのインスタンスを生成
      let formatter: DateFormatter = DateFormatter()
@@ -26,7 +26,7 @@ struct NewsModel: Codable  {
          formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss'Z'"
 
          //正常にDate型に変換できるか確認
-         if let date = formatter.date(from: publishedAt){
+        if let date = formatter.date(from: publishedAt!){
              //表示するフォーマットを指定
              formatter.dateFormat = "yyyy/MM/dd HH:mm"
              //String型に変換を行い、返す
@@ -34,12 +34,12 @@ struct NewsModel: Codable  {
              return str
          }
     //万が一失敗した場合は、そのままdateを返す
-        return publishedAt
+        return publishedAt!
     }
     //著者名
     var author: String? = ""
     //記事名
-    var title: String = ""
+    var title: String? = ""
     
     //イメージ
     var urlToImage: String? = nil
@@ -59,8 +59,10 @@ extension UIImage {
        let url = URL(string: url)
        do {
            let data = try Data(contentsOf: url!)
-           self.init(data: data)!
+        if data != nil {
+        self.init(data: data)!
            return
+        }
        } catch let err {
            print("Error : \(err.localizedDescription)")
        }

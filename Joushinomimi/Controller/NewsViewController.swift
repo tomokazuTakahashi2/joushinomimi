@@ -16,6 +16,8 @@ class NewsViewController: UIViewController, UITableViewDataSource, UITableViewDe
     //データモデルを格納する配列
     var dataList:[NewsModel] = []
     
+    let refresh = UIRefreshControl()
+    
     @IBOutlet weak var newsTableView: UITableView!
 
 //MARK: - viewDidLoad
@@ -28,36 +30,23 @@ class NewsViewController: UIViewController, UITableViewDataSource, UITableViewDe
         //カスタムセル
         let nib = UINib(nibName: "NewsTableViewCell", bundle: nil)
         newsTableView.register(nib, forCellReuseIdentifier: "NewsCell")
-        
-        //画面表示時に行う通信処理を追加
-        reloadListDatas()
 
-//        // Alamofire
-//        AF.request("https://newsapi.org/v2/top-headlines?country=jp&apiKey=59288c383f6b40b1969c83c8fae0f0be").response { response in
-//            //debugPrint(response)
-//
-//            if let jsonObject = response.value{
-//
-//                //SwiftyJSON
-//                let json = JSON(jsonObject)
-//                // Getting a string from a JSON Dictionary
-//                let articles = json["articles"]
-//                // If json is .Dictionary
-//                for (key,subJson):(String, JSON) in articles {
-//                   // Do something you want
-//                    print(subJson["source"]["name"])
-//                    print(subJson["author"])
-//                    print(subJson["title"])
-//                    print(subJson["description"])
-//                    print(subJson["url"])
-//                    print(subJson["urlToImage"])
-//                    print(subJson["publishedAt"])
-//                    print(subJson["content"])
-//                }
-//            }
-//        }
         
         
+        //リフレッシュコントローラー
+        newsTableView.refreshControl = refresh
+        refresh.addTarget(self, action: #selector(update), for: .valueChanged)
+        
+        reloadListDatas()
+        
+        newsTableView.reloadData()
+        
+    }
+    @objc func update(){
+        reloadListDatas()
+        newsTableView.reloadData()
+        // クルクルを止める
+        refresh.endRefreshing()
     }
 //MARK: - reloadListDatas
     func reloadListDatas(){
