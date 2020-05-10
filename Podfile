@@ -17,6 +17,7 @@ target 'Joushinomimi' do
   pod 'Kingfisher'
   pod 'Alamofire'
   pod 'SwiftyJSON'
+  pod 'SDWebImage'
   
 
 end

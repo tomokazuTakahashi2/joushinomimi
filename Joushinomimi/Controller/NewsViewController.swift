@@ -7,11 +7,13 @@
 //
 
 import UIKit
-//import Alamofire
+import SDWebImage
 //import SwiftyJSON
 import SafariServices
 
 class NewsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+    //インジケーター（ぐるぐる）
+    var activityIndicatorView = UIActivityIndicatorView()
 
     //データモデルを格納する配列
     var dataList:[NewsModel] = []
@@ -24,14 +26,33 @@ class NewsViewController: UIViewController, UITableViewDataSource, UITableViewDe
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //読み込み中
+        // インジゲーターの設定
+        activityIndicatorView.center = view.center
+        activityIndicatorView.style = .whiteLarge
+        activityIndicatorView.color = .purple
+        view.addSubview(activityIndicatorView)
+        // アニメーション開始
+        activityIndicatorView.startAnimating()
+
+        DispatchQueue.global(qos: .default).async {
+            // 非同期処理などを実行（今回は５秒間待つだけ）
+            Thread.sleep(forTimeInterval: 5)
+
+            // 非同期処理などが終了したらメインスレッドでアニメーション終了
+            DispatchQueue.main.async {
+                // アニメーション終了
+                self.activityIndicatorView.stopAnimating()
+            }
+        }
+        
         newsTableView.delegate = self
         newsTableView.dataSource = self
         
         //カスタムセル
         let nib = UINib(nibName: "NewsTableViewCell", bundle: nil)
         newsTableView.register(nib, forCellReuseIdentifier: "NewsCell")
-
-        
+       
         
         //リフレッシュコントローラー
         newsTableView.refreshControl = refresh
@@ -133,7 +154,6 @@ class NewsViewController: UIViewController, UITableViewDataSource, UITableViewDe
         //取得したデータを取り出す
         let data = dataList[indexPath.row]
         
-        
         //日付
         cell.dateLabel.text = data.publishedAt
         //タイトル
@@ -146,9 +166,11 @@ class NewsViewController: UIViewController, UITableViewDataSource, UITableViewDe
         cell.authorLabel.text = data.author
         //画像
         if let url = data.urlToImage {
-        //UIImageのExtensionを利用。
-        cell.urlToImageView.image =  UIImage.init(url: url)
+            
+            //UIImageのExtensionを利用。
+            cell.urlToImageView.image =  UIImage.init(url: url)
         }
+     
         //セルのインスタンスを返す
         return cell
     }

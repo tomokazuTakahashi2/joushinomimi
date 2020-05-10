@@ -9,7 +9,6 @@
 import UIKit
 import ESTabBarController
 import Firebase
-//import FirebaseUI
 import SVProgressHUD
 import CLImageEditor
 import Kingfisher
@@ -27,17 +26,6 @@ class SettingViewController: UIViewController,UIImagePickerControllerDelegate, U
 //MARK: - viewWillAppear
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
-//        //FirebaseUI
-//            let storageRef = Storage.storage().reference(forURL: "gs://joushinomimi.appspot.com")
-//            // Reference to an image file in Firebase Storage
-//            let reference = storageRef.child("users/\(Auth.auth().currentUser!.uid)/profile-picture.jpg")
-//            // UIImageView in your ViewController
-//            let imageView: UIImageView = self.imageView
-//            // Placeholder image
-//            let placeholderImage = UIImage(named: "placeholder.jpg")
-//            // Load the image using SDWebImage
-//            imageView.sd_setImage(with: reference, placeholderImage: placeholderImage)
         
         //ダウンロード URL
             let storageRef = Storage.storage().reference(forURL: "gs://joushinomimi.appspot.com")
