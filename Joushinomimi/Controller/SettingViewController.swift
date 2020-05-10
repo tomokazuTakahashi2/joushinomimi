@@ -57,6 +57,11 @@ class SettingViewController: UIViewController,UIImagePickerControllerDelegate, U
         }
         
     }
+//MARK: - 画面をタップしたらキーボードを閉じる
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        
+        self.view.endEditing(true)
+    }
 //MARK: - 表示名変更ボタンをタップしたときに呼ばれるメソッド
     @IBAction func handleChangeButton(_ sender: Any) {
         if let displayName = displayNameTextField.text {
