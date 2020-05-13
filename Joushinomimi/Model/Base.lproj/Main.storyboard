@@ -372,6 +372,21 @@
             </objects>
             <point key="canvasLocation" x="2635" y="1554"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="g2p-cf-pg9">
+            <objects>
+                <viewController id="Tjv-XY-1lt" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="brv-ec-tLM">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="QQy-Br-Zoy"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="S9B-QK-jUR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3451" y="1554"/>
+        </scene>
         <!--News View Controller-->
         <scene sceneID="a93-Vx-NwB">
             <objects>
@@ -406,6 +421,7 @@
                         <viewLayoutGuide key="safeArea" id="oon-s7-cb5"/>
                     </view>
                     <connections>
+                        <outlet property="newsSearchBar" destination="bku-Qh-aRb" id="wab-A7-eQH"/>
                         <outlet property="newsTableView" destination="LXo-Td-TQc" id="tA6-L3-YZg"/>
                     </connections>
                 </viewController>

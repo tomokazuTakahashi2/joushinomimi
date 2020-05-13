@@ -135,12 +135,7 @@ class SearchViewController: UIViewController,UISearchBarDelegate, UITableViewDel
         
     }
 // MARK: - Search Bar Delegate Methods
-//    // テキストが変更される毎に呼ばれる
-//    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-//        //検索する
-//        searchItems(searchText: searchText)
-//    }
-    
+
     //キャンセルボタンをクリック
        func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
            // キャンセルされた場合、検索は行わない。

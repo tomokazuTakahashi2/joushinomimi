@@ -49,8 +49,8 @@ struct NewsModel: Codable  {
     var description: String? = ""
     //出典
 //    var name: String? = ""
-//    //URL
-//    var link: String = ""
+    //URL
+//    var link: String? = ""
     
 }
 
