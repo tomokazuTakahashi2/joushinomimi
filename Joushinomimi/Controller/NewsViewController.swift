@@ -52,6 +52,8 @@ class NewsViewController: UIViewController, UISearchBarDelegate, UITableViewData
                     self.activityIndicatorView.stopAnimating()
                 }
             }
+        
+    
         //テーブルビューの２セット
         newsTableView.delegate = self
         newsTableView.dataSource = self
@@ -122,10 +124,11 @@ class NewsViewController: UIViewController, UISearchBarDelegate, UITableViewData
             //self.dataList = try! JSONDecoder().decode([NewsModel].self, from: jsonData)
             let jsonTest = try! JSONDecoder().decode(Test.self, from: jsonData) as Test
             print(jsonTest)
-            
+            //JSONデータを
             if let articles = jsonTest.articles {
                 for newsModel in articles {
                     self.newsSearchResult.append(newsModel)
+                    self.newsItems.append(newsModel)
                 }
             }
             //メインスレッドに処理を戻す
@@ -140,7 +143,7 @@ class NewsViewController: UIViewController, UISearchBarDelegate, UITableViewData
     //MARK: - 渡された文字列を含む要素を検索し、テーブルビューを再表示する
     func searchItems(searchText: String) {
         print(searchText)
-        print(dataList)
+        print(newsTableView)
         ///サーチテクストが空欄じゃなかったら、
         if searchText != "" {
             //検索結果配列に検索用配列をフィルタリングしたものを入れる
