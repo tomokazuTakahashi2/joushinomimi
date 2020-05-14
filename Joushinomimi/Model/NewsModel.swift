@@ -50,7 +50,7 @@ struct NewsModel: Codable  {
     //出典
 //    var name: String? = ""
     //URL
-//    var link: String? = ""
+    var link: String? = ""
     
 }
 

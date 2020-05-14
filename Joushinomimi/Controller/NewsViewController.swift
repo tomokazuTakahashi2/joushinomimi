@@ -142,10 +142,9 @@ class NewsViewController: UIViewController, UISearchBarDelegate, UITableViewData
     }
     //MARK: - 渡された文字列を含む要素を検索し、テーブルビューを再表示する
     func searchItems(searchText: String) {
-        print(searchText)
-        print(newsTableView)
         ///サーチテクストが空欄じゃなかったら、
         if searchText != "" {
+            newsSearchResult = []
             //検索結果配列に検索用配列をフィルタリングしたものを入れる
             newsSearchResult = newsItems.filter { item in
                 item.title?.contains(searchText) ?? false
@@ -164,10 +163,21 @@ class NewsViewController: UIViewController, UISearchBarDelegate, UITableViewData
 
        //キャンセルボタンをクリック
        func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+           
            // キャンセルされた場合、検索は行わない。
            searchBar.text = ""
            self.view.endEditing(true)
             print("検索をしません")
+        
+            //tableViewを再読み込みする
+                // 差し替えるため一度削除する
+                self.newsSearchResult.removeAll()
+                // 削除したところに更新済みのデータを追加する
+                //self.newsSearchResult.insert(newsModel, at: index)
+                self.newsTableView.reloadData()
+                reloadListDatas()
+                print("再読み込み")
+        
        }
        //検索ボタンをクリック
        func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
@@ -203,17 +213,19 @@ class NewsViewController: UIViewController, UISearchBarDelegate, UITableViewData
         //セルの選択を解除
         tableView.deselectRow(at: indexPath,animated: true)
         //データを取り出す
-        let data = dataList[indexPath.row]
+        let data = newsSearchResult[indexPath.row]
+        print(data)
+        guard data.link != nil else{return}
+            print("リンクはnilではありません")
+        //記事のURLを取得する
+        if let url = URL(string: data.link!){
         
-//        //記事のURLを取得する
-//        if let url = URL(string: data.link){
-//
-//            //SFSafariViewControllerのインスタンスを生成
-//            let controller: SFSafariViewController = SFSafariViewController(url: url)
-//
-//            //次の画面へ遷移して、表示する
-//            self.present(controller,animated: true,completion: nil)
-//        }
+            //SFSafariViewControllerのインスタンスを生成
+            let controller: SFSafariViewController = SFSafariViewController(url: url)
+
+            //次の画面へ遷移して、表示する
+            self.present(controller,animated: true,completion: nil)
+        }
     }
     //セルのセクション数を決める
     func numberOfSections(in tableView: UITableView) -> Int {
