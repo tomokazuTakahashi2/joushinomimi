@@ -235,10 +235,10 @@ class NewsViewController: UIViewController, UISearchBarDelegate, UITableViewData
         //データを取り出す
         let data = newsSearchResult[indexPath.row]
         print(data)
-        guard data.link != nil else{return}
+        guard data.url != nil else{return}
             print("リンクはnilではありません")
         //記事のURLを取得する
-        if let url = URL(string: data.link!){
+        if let url = URL(string: data.url!){
         
             //SFSafariViewControllerのインスタンスを生成
             let controller: SFSafariViewController = SFSafariViewController(url: url)
@@ -288,7 +288,8 @@ class NewsViewController: UIViewController, UISearchBarDelegate, UITableViewData
     
     //セルの高さ
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 600
+        
+        return 450
     }
 
     

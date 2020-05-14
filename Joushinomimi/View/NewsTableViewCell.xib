@@ -23,22 +23,11 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="mgi-8a-uVa">
-                        <rect key="frame" x="40" y="95.5" width="316" height="316"/>
+                        <rect key="frame" x="40" y="95.5" width="316" height="200"/>
                         <constraints>
-                            <constraint firstAttribute="width" secondItem="mgi-8a-uVa" secondAttribute="height" multiplier="1:1" id="3sk-Xf-s30"/>
+                            <constraint firstAttribute="height" constant="200" id="STJ-37-JXx"/>
                         </constraints>
                     </imageView>
-                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="EDH-Ni-zdD">
-                        <rect key="frame" x="40" y="416.5" width="316" height="147"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <constraints>
-                            <constraint firstAttribute="width" secondItem="EDH-Ni-zdD" secondAttribute="height" multiplier="275:128" id="0WQ-Ed-vnF"/>
-                        </constraints>
-                        <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                        <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                    </textView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m3M-SI-zOj">
                         <rect key="frame" x="10" y="10" width="35.5" height="17"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -54,6 +43,17 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="EDH-Ni-zdD">
+                        <rect key="frame" x="40" y="296.5" width="316" height="150"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="150" id="oja-F4-rbI"/>
+                        </constraints>
+                        <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                        <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                    </textView>
                 </subviews>
                 <constraints>
                     <constraint firstItem="m3M-SI-zOj" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="3yJ-LX-Cby"/>
@@ -61,7 +61,7 @@
                     <constraint firstItem="EDH-Ni-zdD" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="20" id="9XS-Ik-ntg"/>
                     <constraint firstItem="qxh-eU-pRu" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="10" id="9fL-sy-yUH"/>
                     <constraint firstAttribute="trailingMargin" secondItem="mgi-8a-uVa" secondAttribute="trailing" constant="20" id="ASu-c9-UZK"/>
-                    <constraint firstItem="EDH-Ni-zdD" firstAttribute="top" secondItem="mgi-8a-uVa" secondAttribute="bottom" constant="5" id="Fqt-rq-CQ1"/>
+                    <constraint firstItem="EDH-Ni-zdD" firstAttribute="top" secondItem="mgi-8a-uVa" secondAttribute="bottom" constant="1" id="C3p-KQ-IxX"/>
                     <constraint firstItem="9Pp-eU-n3G" firstAttribute="top" secondItem="m3M-SI-zOj" secondAttribute="bottom" constant="5" id="PUt-IZ-o0I"/>
                     <constraint firstItem="mgi-8a-uVa" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="X3L-Ry-obz"/>
                     <constraint firstItem="mgi-8a-uVa" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="20" id="gXe-Y7-LAa"/>
