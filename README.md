@@ -1,7 +1,7 @@
 # joushinomimi
 ![joushinomimiイメージ1.png](joushinomimi1.png)
-![joushinomimiイメージ2.png](joushinomimi２.png)
-![joushinomimiイメージ3.png](joushinomimi３.png)
+![joushinomimiイメージ2.png](joushinomimi2.png)
+![joushinomimiイメージ3.png](joushinomimi3.png)
 ![joushinomimiイメージ4.png](joushinomimi4.png)
 ![joushinomimiイメージ4.png](joushinomimi5.png)
 ## 概要
