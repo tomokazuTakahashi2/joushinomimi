@@ -15,4 +15,4 @@ CLImageEditor
 Kingfisher
 
 ## 動画イメージ
-<img src="***CrnJrDjPpcWVDjQOMhPy1589796951-1589796972.gif***","***サイズ***">
+![](CrnJrDjPpcWVDjQOMhPy1589796951-1589796972.gif)
