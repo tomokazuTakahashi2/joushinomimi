@@ -15,4 +15,4 @@ CLImageEditor
 Kingfisher
 
 ## 動画イメージ
-![joushinomimi](６．５動画.gif)
+![joushinomimi](joushinomimi.gif)
