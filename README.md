@@ -4,11 +4,11 @@
 ログイン・ログアウト機能、記事の投稿・検索、お気に入り記事へのイイネボタン、ニュースの閲覧・検索、プロフィールの編集ができます。
 
 ## 使用ライブラリ
-Firebase
-ESTabBarController
-SVProgressHUD
-CLImageEditor
-Kingfisher
+*Firebase
+*ESTabBarController
+*SVProgressHUD
+*CLImageEditor
+*Kingfisher
 
 ## イメージ
 ![joushinomimiイメージ1.png](joushinomimi1.png)
